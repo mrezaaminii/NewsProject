@@ -15,23 +15,33 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">نام و نام خانوادگی</label>
-                            <input class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
+                            <input class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}"
                                    type="text" id="name" name="name" placeholder="نام خود را وارد کنید">
                             @error('name')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger" role="alert">
+                                    {{$message}}
+                                </div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="email">ایمیل</label>
-                            <input class="form-control" value=""
+                            <input class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}"
                                    type="email" id="email" name="email" placeholder="ایمیل خود را وارد کنید">
-
+                            @error('email')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="password">رمز عبور</label>
-                            <input class="form-control" value=""
+                            <input class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}"
                                    type="password" id="password" name="password" placeholder="رمز عبور خود را وارد کنید">
-
+                            @error('password')
+                            <div class="alert alert-danger" role="alert">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <div class="custom-control custom-checkbox">
@@ -50,7 +60,7 @@
             <div class="row mt-3">
                 <div class="col-12 text-center">
                     <p class="text-muted">حساب کاربری دارید؟
-                        <a href="" class="text-dark ml-1"><b>وارد شوید</b></a>
+                        <a href="{{route('auth.login')}}" class="text-dark ml-1"><b>وارد شوید</b></a>
                     </p>
                 </div>
             </div>
