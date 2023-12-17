@@ -161,6 +161,8 @@ return [
   * Modules Service Providers...
   */
         mam\Home\Providers\HomeServiceProvider::class,
+        mam\User\Providers\UserServiceProvider::class,
+        mam\Auth\Providers\AuthServiceProvider::class,
 
         /*
          * Package Service Providers...

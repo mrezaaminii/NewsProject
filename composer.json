@@ -25,7 +25,9 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "mam\\Home\\": "modules/mam/Home"
+            "mam\\Home\\": "modules/mam/Home",
+            "mam\\Auth\\": "modules/mam/Auth",
+            "mam\\User\\": "modules/mam/User"
         }
     },
     "autoload-dev": {
