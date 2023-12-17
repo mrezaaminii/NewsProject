@@ -156,6 +156,12 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+
+        /*
+  * Modules Service Providers...
+  */
+        mam\Home\Providers\HomeServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
