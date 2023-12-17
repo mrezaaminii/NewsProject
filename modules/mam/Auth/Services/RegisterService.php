@@ -3,6 +3,7 @@
 namespace mam\Auth\Services;
 
 use mam\User\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterService
 {
@@ -11,7 +12,7 @@ class RegisterService
         return User::query()->create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->name)
+            'password' => Hash::make($request->name)
         ]);
     }
 }
