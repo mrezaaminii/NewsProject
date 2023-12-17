@@ -1,5 +1,6 @@
 <?php
 
+use mam\Auth\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use mam\Auth\Http\Controllers\RegisterController;
 
