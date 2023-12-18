@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request): \Illuminate\Http\RedirectResponse
     {
-        if (Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')])){
+        if (auth()->attempt($request->only('email','password'))){
             return to_route('home.index');
         }
             return back()->withErrors(['loginError' => __('Login Details Wasn\'t true')]);
