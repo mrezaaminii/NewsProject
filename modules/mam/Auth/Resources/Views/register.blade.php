@@ -47,8 +47,7 @@
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="privacy" name="privacy" value="1">
                                 <label class="custom-control-label" for="privacy">
-                                    <a href="javascript: void(0);" class="text-dark">شرابط و قوانین</a> را می پذیرم
-                                </label>
+                                    <a href="javascript: void(0);" class="text-dark">شرایط و قوانین</a> را می پذیرم</label>
                             </div>
                         </div>
                         <div class="form-group mb-0 text-center">
@@ -60,7 +59,7 @@
             <div class="row mt-3">
                 <div class="col-12 text-center">
                     <p class="text-muted">حساب کاربری دارید؟
-                        <a href="{{route('auth.login')}}" class="text-dark ml-1"><b>وارد شوید</b></a>
+                        <a href="{{route('login')}}" class="text-dark ml-1"><b>وارد شوید</b></a>
                     </p>
                 </div>
             </div>
