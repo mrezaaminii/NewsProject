@@ -14,4 +14,5 @@ Route::group([],function (){
 
     Route::get('verify/email',[VerifyController::class,'view'])->name('auth.verify.email')->middleware('auth');
     Route::get('verify/email/{id}/{hash}',[VerifyController::class,'verify'])->name('verification.verify')->middleware(['auth','signed']);
+    Route::post('verify/email/resend',[VerifyController::class,'resend'])->name('verify.resend')->middleware(['auth','throttle:5,1']);
 });
