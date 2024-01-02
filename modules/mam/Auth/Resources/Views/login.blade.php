@@ -38,6 +38,7 @@
                             </div>
                             @enderror
                         </div>
+                            <div>رمز عبور خود را فراموش کردید؟ <a href="{{route('auth.password.email')}}">کلیک کنید</a></div>
                         <div class="form-group mb-0 text-center">
                             <button class="btn btn-primary btn-block" type="submit">ورود </button>
                         </div>
