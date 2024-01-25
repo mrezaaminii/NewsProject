@@ -18,7 +18,7 @@
                     @if (session()->has('error'))
                         <div class="alert alert-danger">{{ session()->get('error') }}</div>
                     @endif
-                    <form action="{{ route('auth.password.send.email') }}" method="POST">
+                    <form action="{{route('auth.password.send.email')}}" method="POST">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="email">ایمیل</label>

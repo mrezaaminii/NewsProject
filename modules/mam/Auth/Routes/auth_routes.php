@@ -18,5 +18,7 @@ Route::group([],function (){
     Route::post('verify/email/resend',[VerifyController::class,'resend'])->name('verify.resend')->middleware(['auth','throttle:5,1']);
 
     Route::get('password/email',[ResetController::class,'view'])->name('auth.password.email')->middleware('guest');
-    Route::post('password/send-email',[ResetController::class,'sendEmail'])->name('password.reset')->middleware('guest');
+    Route::post('password/send-email',[ResetController::class,'sendEmail'])->name('auth.password.send.email')->middleware('guest');
+    Route::get('password/send-email-reset',[ResetController::class,'reset'])->name('password.reset')->middleware('guest');
+    Route::post('password/send-email-reset-password',[ResetController::class,'resetPassword'])->name('password.update')->middleware('guest');
 });
