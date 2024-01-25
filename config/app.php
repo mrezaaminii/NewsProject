@@ -163,6 +163,7 @@ return [
         mam\Home\Providers\HomeServiceProvider::class,
         mam\User\Providers\UserServiceProvider::class,
         mam\Auth\Providers\AuthServiceProvider::class,
+        mam\Panel\Providers\PanelServiceProvider::class,
 
         /*
          * Package Service Providers...
