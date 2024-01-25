@@ -3,6 +3,7 @@
 use App\Http\Controllers\VerifyController;
 use mam\Auth\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use mam\Auth\Http\Controllers\LogoutController;
 use mam\Auth\Http\Controllers\RegisterController;
 use mam\Auth\Http\Controllers\ResetController;
 
@@ -21,4 +22,6 @@ Route::group([],function (){
     Route::post('password/send-email',[ResetController::class,'sendEmail'])->name('auth.password.send.email')->middleware('guest');
     Route::get('password/send-email-reset',[ResetController::class,'reset'])->name('password.reset')->middleware('guest');
     Route::post('password/send-email-reset-password',[ResetController::class,'resetPassword'])->name('password.update')->middleware('guest');
+
+    Route::get('/logout',LogoutController::class)->name('auth.logout')->middleware('auth');
 });

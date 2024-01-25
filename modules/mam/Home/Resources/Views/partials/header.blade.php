@@ -444,6 +444,35 @@
                                         تماس با ما
                                     </a>
                                 </li>
+                                @auth
+                                    <li>
+                                        <a href="{{route('auth.logout')}}">
+                                                <span class="ml-15">
+                                                    <ion-icon name="mail-unread-outline"></ion-icon>
+                                                </span>
+                                            خروج
+                                        </a>
+                                    </li>
+                                @endauth
+                                @guest
+                                    <li>
+                                        <a href="{{route('auth.register')}}">
+                                                <span class="ml-15">
+                                                    <ion-icon name="mail-unread-outline"></ion-icon>
+                                                </span>
+                                            ثبت نام
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('login')}}">
+                                                <span class="ml-15">
+                                                    <ion-icon name="mail-unread-outline"></ion-icon>
+                                                </span>
+                                            ورود
+                                        </a>
+                                    </li>
+                                @endguest
                             </ul>
                             <div class="d-inline mr-50 tools-icon">
                                 <a class="red-tooltip text-danger" href="#" data-toggle="tooltip"
