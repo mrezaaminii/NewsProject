@@ -9,7 +9,7 @@
                 <div class="dropdown-item noti-title">
                     <h5 class="m-0">
                         <span class="float-right">
-                            <a href="{{ route('mark.notifications') }}" class="text-dark">
+                            <a href="#" class="text-dark">
                                 <small>پاک کردن همه</small>
                             </a>
                         </span>اطلاعیه ها
@@ -40,7 +40,7 @@
                aria-haspopup="false" aria-expanded="false">
                 <img src="{{ asset('admin/images/users/user-1.jpg') }}" alt="تصویر کاربر" class="rounded-circle">
                 <span class="pro-user-name ml-1">
-                    {{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i>
+                    {{ auth()->user()?->name }} <i class="mdi mdi-chevron-down"></i>
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">

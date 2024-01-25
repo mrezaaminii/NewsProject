@@ -7,21 +7,19 @@
 
     <title>@yield('title') | {{ config('app.name') }}</title>
 
-    @include('Panel::section.css')
+    @include('Panel::partials.css')
 </head>
 <body>
 <div id="wrapper">
-    @include('Panel::section.navbar')
-    @include('Panel::section.sidebar')
+    @include('Panel::partials.navbar')
+    @include('Panel::partials.sidebar')
     <div class="content-page">
         <div class="content">
             @yield('content')
         </div>
-        @include('Panel::section.footer')
+        @include('Panel::partials.footer')
     </div>
 </div>
 <div class="rightbar-overlay"></div>
-@include('Panel::section.js')
-@include('sweetalert::alert')
 </body>
 </html>
