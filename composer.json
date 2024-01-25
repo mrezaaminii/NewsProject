@@ -27,7 +27,8 @@
             "Database\\Seeders\\": "database/seeders/",
             "mam\\Home\\": "modules/mam/Home",
             "mam\\Auth\\": "modules/mam/Auth",
-            "mam\\User\\": "modules/mam/User"
+            "mam\\User\\": "modules/mam/User",
+            "mam\\Panel\\": "modules/mam/Panel"
         }
     },
     "autoload-dev": {
