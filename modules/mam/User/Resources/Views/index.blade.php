@@ -47,9 +47,10 @@
                                     <td>
                                         <div class="row">
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">ویرایش</a>
-                                            <form action="">
-                                                <a href="{{ route('users.edit', $user->id) }}"
-                                                   class="btn btn-danger ml-1">حذف</a>
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger ml-1">حذف</button>
                                             </form>
                                         </div>
                                     </td>

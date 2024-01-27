@@ -18,7 +18,6 @@
                                         @endforeach
                                     </ul>
                                 @endif
-                                {{--                           <form class="form-horizontal" role="form" method="POST" action="/admin/users"> DONT WRITE THIS FOR ACTION--}}
                                 <form class="form-horizontal" role="form" method="POST" action="{{ route('users.store') }}">
                                     @csrf
                                     <div class="form-group row">
