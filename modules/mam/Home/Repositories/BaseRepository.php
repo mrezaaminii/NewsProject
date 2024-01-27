@@ -23,7 +23,7 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function findById(int $id): Model|\Illuminate\Database\Eloquent\Collection
     {
-        return $this->model->query()->find($id);
+        return $this->model->query()->findOrFail($id);
     }
 
     public function updateRecord(int $id, array $data): Model|\Illuminate\Database\Eloquent\Collection
