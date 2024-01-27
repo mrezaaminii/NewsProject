@@ -12,11 +12,11 @@ class BaseRepository implements BaseRepositoryInterface
     {
         $this->model = $model;
     }
-    public function index(): \Illuminate\Database\Eloquent\Collection
+    public function getAll()
     {
         return $this->model->all();
     }
-    public function store(array $data): Model|\Illuminate\Database\Eloquent\Builder
+    public function storeRecord(array $data): Model|\Illuminate\Database\Eloquent\Builder
     {
         return $this->model->query()->create($data);
     }
@@ -26,14 +26,14 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->query()->find($id);
     }
 
-    public function update(int $id, array $data): Model|\Illuminate\Database\Eloquent\Collection
+    public function updateRecord(int $id, array $data): Model|\Illuminate\Database\Eloquent\Collection
     {
         $record = $this->findById($id);
         $record->update($data);
         return $record;
     }
 
-    public function delete(int $id): ?bool
+    public function deleteRecord(int $id): ?bool
     {
         return $this->model->delete($id);
     }

@@ -16,7 +16,7 @@ class HomeServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->app->bind();
+        //
     }
 
 }
