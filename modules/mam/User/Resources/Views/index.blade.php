@@ -1,5 +1,9 @@
 @extends('Panel::layouts.master')
 
+@php
+    use App\Helper\Helper;
+@endphp
+
 @section('title', 'لیست کاربران')
 
 @section('content')
@@ -39,12 +43,14 @@
                                                 {{ $user->textStatusEmailVerifiedAt() }}
                                             </span>
                                     </td>
-                                    <td>{{ convertEnglishToPersian(jdate($user->created_at)->format('datetime')) }}</td>
+                                    <td>{{ Helper::convertEnglishToPersian(jdate($user->created_at)->format('Y-m-d')) }}</td>
                                     <td>
                                         <div class="row">
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">ویرایش</a>
-                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-danger ml-1">حذف</a>
-
+                                            <form action="">
+                                                <a href="{{ route('users.edit', $user->id) }}"
+                                                   class="btn btn-danger ml-1">حذف</a>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

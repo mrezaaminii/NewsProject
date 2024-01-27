@@ -29,6 +29,12 @@ class PanelServiceProvider extends ServiceProvider
                     'title' => 'صفحه اصلی',
                     'icon' => 'view-dashboard'
                 ]);
+
+                config()->set('panelConfig.menus.user',[
+                    'url' => route('users.index'),
+                    'title' => 'صفحه کاربران',
+                    'icon' => 'view-dashboard'
+                ]);
             });
         });
     }
