@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class UserServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/Migrations');
     }
