@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Model\Category;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -39,6 +40,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function textStatusEmailVerifiedAt(): string
     {
         return $this->hasVerifiedEmail() ? 'تایید شده' : 'تایید نشده';
+    }
+
+    public function categories(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Category::class);
     }
 
 }
