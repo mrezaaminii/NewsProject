@@ -40,6 +40,9 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function updateUser(int $id, array $data)
     {
+        if (!$data['password']){
+            $data['password'] = $this->findById($id)->password;
+        }
         return $this->updateRecord($id,$data);
     }
 
