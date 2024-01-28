@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('slug')->unique();
             $table->string('keyword');
-            $table->enum('status',\Model\Category::$statuses);
+            $table->enum('status', \mam\Category\Model\Category::$statuses);
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('parent_id')->nullable()->constrained('categories')->onDelete('cascade');
             $table->timestamps();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace mam\Category\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,7 +32,7 @@ class Category extends Model
 
     protected const INACTIVE = 'inactive';
 
-    protected static array $statuses = [self::ACTIVE,self::INACTIVE];
+    public static array $statuses = [self::ACTIVE,self::INACTIVE];
 
 
 }

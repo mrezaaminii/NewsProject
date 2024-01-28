@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Model\Category;
+use mam\Category\Model\Category;
 
 class User extends Authenticatable implements MustVerifyEmail
 {

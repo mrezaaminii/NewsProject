@@ -3,7 +3,7 @@
 namespace mam\Category\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Model\Category;
+use mam\Category\Model\Category;
 
 class CategoryController extends \App\Http\Controllers\Controller
 {
