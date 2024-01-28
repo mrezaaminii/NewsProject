@@ -2,6 +2,9 @@
 
 return [
     'menus' => [
-        'panel' => []
+        'panel' => [],
+        'home' => [],
+        'users' => [],
+        'categories' => []
     ]
 ];
