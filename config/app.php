@@ -165,7 +165,7 @@ return [
         mam\Auth\Providers\AuthServiceProvider::class,
         mam\Panel\Providers\PanelServiceProvider::class,
         mam\Home\Providers\RepositoryServiceProvider::class,
-
+        mam\Category\Providers\CategoryServiceProvider::class,
         /*
          * Package Service Providers...
          */

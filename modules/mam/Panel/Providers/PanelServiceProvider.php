@@ -27,13 +27,13 @@ class PanelServiceProvider extends ServiceProvider
                 config()->set('panelConfig.menus.home',[
                     'url' => route('home.index'),
                     'title' => 'صفحه اصلی',
-                    'icon' => 'view-dashboard'
+                    'icon' => 'home'
                 ]);
 
                 config()->set('panelConfig.menus.user',[
                     'url' => route('users.index'),
                     'title' => 'صفحه کاربران',
-                    'icon' => 'view-dashboard'
+                    'icon' => 'account-group'
                 ]);
             });
         });
