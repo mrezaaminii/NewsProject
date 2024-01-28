@@ -29,7 +29,8 @@
             "mam\\Home\\": "modules/mam/Home",
             "mam\\Auth\\": "modules/mam/Auth",
             "mam\\User\\": "modules/mam/User",
-            "mam\\Panel\\": "modules/mam/Panel"
+            "mam\\Panel\\": "modules/mam/Panel",
+            "mam\\Category\\": "modules/mam/Category"
         }
     },
     "autoload-dev": {
