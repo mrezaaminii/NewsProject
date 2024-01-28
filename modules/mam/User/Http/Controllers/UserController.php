@@ -4,6 +4,7 @@ namespace mam\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use mam\User\Http\Requests\UserRequest;
 use mam\User\Repositories\UserRepository;
 
 class UserController extends Controller
@@ -31,7 +32,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $this->repository->storeUser($request->all());
         return to_route('users.index');
@@ -58,7 +59,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserRequest $request, string $id)
     {
         $this->repository->updateUser($id,$request->all());
         return to_route('users.index');
