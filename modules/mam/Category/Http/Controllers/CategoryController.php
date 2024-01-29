@@ -4,16 +4,21 @@ namespace mam\Category\Http\Controllers;
 
 use Illuminate\Http\Request;
 use mam\Category\Model\Category;
+use mam\Category\Repositories\CategoryRepository;
 
 class CategoryController extends \App\Http\Controllers\Controller
 {
-    public function __construct()
+    protected $repository;
+
+    public function __construct(CategoryRepository $categoryRepository)
     {
-        
+        $this->repository = $categoryRepository;
     }
+
     public function index()
     {
-        
+        $categories = $this->repository->getAllCategories();
+        return view('Category::index',compact('categories'));
     }
 
     /**
@@ -21,7 +26,7 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function create()
     {
-        //
+        return view('Category::create');
     }
 
     /**
@@ -29,7 +34,7 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
