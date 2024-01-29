@@ -26,7 +26,7 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function create()
     {
-        $categories = $this->repository->getAll()->pluck('title','id')->prepend('--','');
+        $categories = $this->filterCategoriesForSelectOption();
         return view('Category::create',compact('categories'));
     }
 
@@ -54,7 +54,8 @@ class CategoryController extends \App\Http\Controllers\Controller
     public function edit(int $id)
     {
         $category = $this->repository->findById($id);
-        return view('Category::edit', compact('category'));
+        $categories = $this->filterCategoriesForSelectOption()->except($id);
+        return view('Category::edit', compact('category','categories'));
     }
 
     /**
@@ -64,6 +65,11 @@ class CategoryController extends \App\Http\Controllers\Controller
     {
         $this->repository->updateCategory($id,$request->only((new Category())->getFillable()));
         return to_route('categories.index');
+    }
+
+    public function filterCategoriesForSelectOption()
+    {
+        return $this->repository->getAll()->pluck('title','id')->prepend('--','');
     }
 
     /**

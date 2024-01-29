@@ -24,7 +24,7 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-        'title' => 'required|min:3|string|unique:categories,title',
+        'title' => 'required|min:2|string|unique:categories,title',
         'description' => 'nullable|min:3',
         'keyword' => 'nullable|min:3|max:255',
         'status' => ['required',Rule::in(Category::$statuses)],
