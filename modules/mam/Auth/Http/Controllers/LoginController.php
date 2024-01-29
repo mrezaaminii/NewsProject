@@ -3,7 +3,6 @@
 namespace mam\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use mam\Auth\Http\Requests\LoginRequest;
 
 class LoginController extends Controller

@@ -2,7 +2,6 @@
 
 namespace mam\User\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
 use mam\Home\Repositories\BaseRepository;
 use mam\User\Contract\UserRepositoryInterface;
 use mam\User\Models\User;

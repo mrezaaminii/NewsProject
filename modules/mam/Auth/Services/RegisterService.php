@@ -2,8 +2,8 @@
 
 namespace mam\Auth\Services;
 
-use mam\User\Models\User;
 use Illuminate\Support\Facades\Hash;
+use mam\User\Models\User;
 
 class RegisterService
 {

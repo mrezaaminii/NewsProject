@@ -2,7 +2,6 @@
 
 namespace mam\Panel\Providers;
 
-use Closure;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 

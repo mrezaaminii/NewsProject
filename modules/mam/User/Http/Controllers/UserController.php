@@ -3,7 +3,6 @@
 namespace mam\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use mam\User\Http\Requests\UserRequest;
 use mam\User\Repositories\UserRepository;
 

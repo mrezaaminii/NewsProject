@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\VerifyController;
-use mam\Auth\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use mam\Auth\Http\Controllers\LoginController;
 use mam\Auth\Http\Controllers\LogoutController;
 use mam\Auth\Http\Controllers\RegisterController;
 use mam\Auth\Http\Controllers\ResetController;
