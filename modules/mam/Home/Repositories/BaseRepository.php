@@ -14,7 +14,7 @@ class BaseRepository implements BaseRepositoryInterface
     }
     public function getAll()
     {
-        return $this->model->query()->latest()->paginate(10);
+        return $this->model->query()->latest();
     }
     public function storeRecord(array $data): Model|\Illuminate\Database\Eloquent\Builder
     {

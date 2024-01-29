@@ -3,6 +3,8 @@
 namespace mam\Home\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use mam\Category\Contract\CategoryRepositoryInterface;
+use mam\Category\Repositories\CategoryRepository;
 use mam\Home\Contract\BaseRepositoryInterface;
 use mam\Home\Repositories\BaseRepository;
 use mam\User\Contract\UserRepositoryInterface;
@@ -19,5 +21,6 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(BaseRepositoryInterface::class,BaseRepository::class);
         $this->app->bind(UserRepositoryInterface::class,UserRepository::class);
+        $this->app->bind(CategoryRepositoryInterface::class,CategoryRepository::class);
     }
 }

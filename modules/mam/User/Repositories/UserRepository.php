@@ -16,12 +16,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function getAllUsers()
     {
-        return $this->getAll();
-    }
-
-    public function createUser()
-    {
-//        return view();
+        return $this->getAll()->paginate(10);
     }
 
     public function storeUser(array $data)
@@ -32,10 +27,6 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     public function showUser(int $id)
     {
         return $this->findById($id);
-    }
-    public function editUser(int $id)
-    {
-        //
     }
 
     public function updateUser(int $id, array $data)

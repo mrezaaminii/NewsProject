@@ -7,12 +7,13 @@ use mam\Category\Model\Category;
 
 class CategoryController extends \App\Http\Controllers\Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        
+    }
     public function index()
     {
-        //
+        
     }
 
     /**
