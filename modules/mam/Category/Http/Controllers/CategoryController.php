@@ -33,40 +33,45 @@ class CategoryController extends \App\Http\Controllers\Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryRequest $request)
+    public function store(CategoryRequest $request): \Illuminate\Http\RedirectResponse
     {
-        $this->repository->
+        $this->repository->storeCategory($request->only((new Category())->getFillable()));
+        return to_route('categories.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
-    {
-        //
-    }
+//    public function show(int $id)
+//    {
+//        $category = $this->repository->findById($id);
+//        return view('Category::show',compact('category'));
+//    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(int $id)
     {
-        //
+        $category = $this->repository->findById($id);
+        return view('Category::edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(CategoryRequest $request, int $id): \Illuminate\Http\RedirectResponse
     {
-        //
+        $this->repository->updateCategory($id,$request->only((new Category())->getFillable()));
+        return to_route('categories.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(int $id): \Illuminate\Http\RedirectResponse
     {
-        //
+        $this->repository->deleteCategory($id);
+        return to_route('categories.index');
     }
 }
