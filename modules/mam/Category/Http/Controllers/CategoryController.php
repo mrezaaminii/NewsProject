@@ -3,6 +3,7 @@
 namespace mam\Category\Http\Controllers;
 
 use Illuminate\Http\Request;
+use mam\Category\Http\Requests\CategoryRequest;
 use mam\Category\Model\Category;
 use mam\Category\Repositories\CategoryRepository;
 
@@ -32,9 +33,9 @@ class CategoryController extends \App\Http\Controllers\Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-
+        $this->repository->
     }
 
     /**
@@ -56,7 +57,7 @@ class CategoryController extends \App\Http\Controllers\Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
         //
     }

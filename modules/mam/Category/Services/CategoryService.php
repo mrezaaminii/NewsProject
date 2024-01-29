@@ -4,13 +4,16 @@ namespace mam\Category\Services;
 
 class CategoryService
 {
-    public function makeSlug()
+    public function makeSlug($title): array|string|null
     {
-        //
+        $urlSlug = str_replace('_','',$title);
+        return preg_replace('/\s/','-',$urlSlug);
     }
 
-    public function filterCatgorySentDataRequest(array $data)
+    public function filterCatgorySentDataRequest(array $data): array
     {
-
+        $data['slug'] = $this->makeSlug($data['title']);
+        $data['user_id'] = auth()->id();
+        return $data;
     }
 }

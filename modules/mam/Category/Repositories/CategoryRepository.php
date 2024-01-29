@@ -20,21 +20,21 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         return $this->getAll()->paginate(10);
     }
 
-//    public function storeCategory(array $data)
-//    {
-//        return $this->categoryService->filterCatgorySentDataRequest($data);
-//    }
+    public function storeCategory(array $data)
+    {
+        return $this->categoryService->filterCatgorySentDataRequest($data);
+    }
 
     public function showCategory(int $id)
     {
         return $this->findById($id);
     }
 
-//    public function updateCategory(int $id, array $data)
-//    {
-//        $returnedData = $this->categoryService->filterCatgorySentDataRequest($data);
-//        return $this->updateRecord($id,$returnedData);
-//    }
+    public function updateCategory(int $id, array $data)
+    {
+        $returnedData = $this->categoryService->filterCatgorySentDataRequest($data);
+        return $this->updateRecord($id,$returnedData);
+    }
 
     public function deleteCategory(int $id)
     {
