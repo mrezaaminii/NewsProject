@@ -22,18 +22,16 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        if (request()->method() === 'POST'){
-        return [
+        $rules = [
             'name' => 'required|min:3,min:200',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8'
         ];
-        }elseif(request()->method() === 'PUT' || request()->method() === 'PATCH'){
-            return [
-                'name' => 'required|min:3,min:200',
-                'email' => ['required','email',Rule::unique('users','email')->ignore($this->user)],
-                'password' => 'nullable|string|min:8'
-            ];
+
+        if(request()->method() === 'PUT' || request()->method() === 'PATCH'){
+            $rules['email'] = ['required','email',Rule::unique('users','email')->ignore($this->user)];
         }
+
+        return $rules;
     }
 }
