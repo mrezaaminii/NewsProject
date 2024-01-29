@@ -10,7 +10,7 @@ class CategoryService
         return preg_replace('/\s/','-',$urlSlug);
     }
 
-    public function filterCatgorySentDataRequest(array $data): array
+    public function filterCategorySentDataRequest(array $data): array
     {
         $data['slug'] = $this->makeSlug($data['title']);
         $data['user_id'] = auth()->id();

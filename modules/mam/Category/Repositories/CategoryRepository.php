@@ -15,14 +15,15 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         parent::__construct($category);
     }
 
-    public function getAllCategories(): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    public function getAllCategories()
     {
         return $this->getAll()->paginate(10);
     }
 
-    public function storeCategory(array $data): array
+    public function storeCategory(array $data): Model|\Illuminate\Database\Eloquent\Builder
     {
-        return $this->categoryService->filterCatgorySentDataRequest($data);
+        $returnedData = $this->categoryService->filterCategorySentDataRequest($data);
+        return $this->storeRecord($returnedData);
     }
 
     public function showCategory(int $id): Model|\Illuminate\Database\Eloquent\Collection
@@ -32,7 +33,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
 
     public function updateCategory(int $id, array $data): Model|\Illuminate\Database\Eloquent\Collection
     {
-        $returnedData = $this->categoryService->filterCatgorySentDataRequest($data);
+        $returnedData = $this->categoryService->filterCategorySentDataRequest($data);
         return $this->updateRecord($id,$returnedData);
     }
 

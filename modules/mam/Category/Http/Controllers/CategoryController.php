@@ -26,7 +26,8 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function create()
     {
-        return view('Category::create');
+        $categories = $this->repository->getAll()->pluck('title','id')->prepend('--','');
+        return view('Category::create',compact('categories'));
     }
 
     /**
