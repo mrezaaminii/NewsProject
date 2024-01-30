@@ -9,8 +9,8 @@ class RoleServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        $this->loadMigrationsFrom(__DIR__.'/../database/Migrations/');
         Route::middleware('web')->group(__DIR__.'/../Routes/role_routes.php');
-        $this->loadMigrationsFrom(__DIR__.'/../database/Migrations');
         $this->loadViewsFrom(__DIR__.'/../Resources/Views','Role');
     }
 
