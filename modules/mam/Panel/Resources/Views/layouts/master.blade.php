@@ -22,4 +22,5 @@
 </div>
 <div class="rightbar-overlay"></div>
 </body>
+@include('Panel::partials.js')
 </html>

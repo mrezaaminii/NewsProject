@@ -28,6 +28,11 @@ class Category extends Model
         return $this->hasMany(__CLASS__,'parent_id');
     }
 
+    public function getParent()
+    {
+        return $this->parentCategory()->first()?->title;
+    }
+
     protected const ACTIVE = 'active';
 
     protected const INACTIVE = 'inactive';

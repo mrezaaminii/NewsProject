@@ -39,15 +39,16 @@
                                     <td>{{ $category->title }}</td>
                                     <td>
                                         <span class="badge badge-primary">
-                                                {{ $category->status }}
+                                            @lang($category->status)
                                         </span>
                                     </td>
-                                    <td>{{ $category->parentCategory->title ?? '' }}</td>
+                                    <td>{{ $category->getParent() }}</td>
                                     <td>{{ $category->user?->name }}</td>
                                     <td>{{ Helper::convertEnglishToPersian(jdate($category->created_at)->format('Y-m-d')) }}</td>
                                     <td>
                                         <div class="row">
                                             <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">ویرایش</a>
+                                            <button type="button" ></button>
                                             <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
