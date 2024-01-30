@@ -16,4 +16,15 @@ class CategoryService
         $data['user_id'] = auth()->id();
         return $data;
     }
+
+    public function changeCategoryStatusService($category)
+    {
+        if ($category->status === 'active'){
+            $category->status = 'inactive';
+        }else{
+            $category->status = 'active';
+        }
+        $category->save();
+        return response()->json(['status' => $category->status]);
+    }
 }

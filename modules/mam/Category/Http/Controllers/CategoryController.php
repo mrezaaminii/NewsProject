@@ -2,6 +2,7 @@
 
 namespace mam\Category\Http\Controllers;
 
+use Illuminate\Http\Request;
 use mam\Category\Http\Requests\CategoryRequest;
 use mam\Category\Model\Category;
 use mam\Category\Repositories\CategoryRepository;
@@ -79,5 +80,10 @@ class CategoryController extends \App\Http\Controllers\Controller
     {
         $this->repository->deleteCategory($id);
         return to_route('categories.index');
+    }
+
+    public function changeStatus(int $id)
+    {
+        return $this->repository->changeCategoryStatus($id);
     }
 }

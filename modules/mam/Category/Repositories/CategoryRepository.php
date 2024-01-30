@@ -41,4 +41,9 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     {
         return $this->deleteRecord($id);
     }
+
+    public function changeCategoryStatus(int $id)
+    {
+        return $this->categoryService->changeCategoryStatusService($this->findById($id));
+    }
 }
