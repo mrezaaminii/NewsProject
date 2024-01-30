@@ -54,7 +54,7 @@
                                             <select name="status"
                                                     class="form-control @error('status') is-invalid @enderror">
                                                 @foreach(\mam\Category\Model\Category::$statuses as $status)
-                                                    <option @if($status === $category->status) selected @endif value="{{ $status }}">{{ $status }}</option>
+                                                    <option @if($status === $category->status) selected @endif value="{{ $status }}">@lang($status)</option>
                                                 @endforeach
                                             </select>
                                             @error('status')

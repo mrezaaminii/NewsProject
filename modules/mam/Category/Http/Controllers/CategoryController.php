@@ -28,7 +28,7 @@ class CategoryController extends \App\Http\Controllers\Controller
     public function create()
     {
         $categories = $this->filterCategoriesForSelectOption();
-        return $this->getApplication();
+        return view('Category::create',compact('categories'));
     }
 
     /**
