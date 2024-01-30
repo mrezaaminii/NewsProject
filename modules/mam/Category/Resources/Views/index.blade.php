@@ -38,7 +38,7 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $category->title }}</td>
                                     <td>
-                                        <span id="statusBadge" class="badge badge-primary">
+                                        <span id="statusBadge{{$category->id}}" class="badge badge-primary">
                                             @lang($category->status)
                                         </span>
                                     </td>
@@ -50,7 +50,7 @@
                                             <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning" title="ویرایش"><i class="fa fa-pen"></i></a>
                                             <button type="button"
                                                     data-url="{{route('categories.change.status',$category->id)}}"
-                                                    onclick="changeStatus(this)"
+                                                    onclick="changeStatus(this,{{$category}})"
                                                     class="btn @if($category->status === 'active') btn-dark @else btn-success @endif ml-1"
                                                     title="تغییر وضعیت">
                                                 <i class="@if($category->status === 'active') fa fa-times @else fa fa-check @endif"></i>
@@ -79,23 +79,23 @@
 @section('js')
     <script src="{{ asset('assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script>
-        const statusBadge = document.getElementById('statusBadge');
-        function changeStatus(category){
-            console.log(category)
+        function changeStatus(element,category){
+        const statusBadge = document.getElementById('statusBadge' + category.id);
+            console.log(statusBadge)
             $.ajax({
-                url: category.getAttribute('data-url'),
+                url: element.getAttribute('data-url'),
                 type:"GET",
                 success: (response) => {
                     if(response.status === 'active') {
                         statusBadge.innerText = 'فعال';
-                        category.classList.remove('btn-success');
-                        category.classList.add('btn-dark');
-                        category.firstElementChild.className = "fa fa-times"
+                        element.classList.remove('btn-success');
+                        element.classList.add('btn-dark');
+                        element.firstElementChild.className = "fa fa-times"
                     }else{
                         statusBadge.innerText = 'غیر فعال';
-                        category.classList.remove('btn-dark');
-                        category.classList.add('btn-success');
-                        category.firstElementChild.className = "fa fa-check";
+                        element.classList.remove('btn-dark');
+                        element.classList.add('btn-success');
+                        element.firstElementChild.className = "fa fa-check";
                     }
                 }
             })
