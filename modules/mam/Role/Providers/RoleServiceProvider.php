@@ -2,8 +2,11 @@
 
 namespace mam\Role\Providers;
 
+use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use mam\Role\database\Seeders\PermissionSeeder;
+use mam\Role\Models\Permission;
 
 class RoleServiceProvider extends ServiceProvider
 {
@@ -11,6 +14,7 @@ class RoleServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/Migrations/');
         Route::middleware('web')->group(__DIR__.'/../Routes/role_routes.php');
+        DatabaseSeeder::$seeders[] = PermissionSeeder::class;
         $this->loadViewsFrom(__DIR__.'/../Resources/Views','Role');
     }
 
