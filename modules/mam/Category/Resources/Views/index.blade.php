@@ -81,7 +81,6 @@
     <script>
         function changeStatus(element,category){
         const statusBadge = document.getElementById('statusBadge' + category.id);
-            console.log(statusBadge)
             $.ajax({
                 url: element.getAttribute('data-url'),
                 type:"GET",
