@@ -15,7 +15,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function getAllUsers()
     {
-        return $this->getAll()->paginate(10);
+        return $this->getAll()->where('id','!=',auth()->id())->paginate(10);
     }
 
     public function storeUser(array $data)
