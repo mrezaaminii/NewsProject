@@ -2,12 +2,18 @@
 
 namespace mam\Role\Repositories;
 
+use Illuminate\Database\Eloquent\Model;
 use mam\Home\Repositories\BaseRepository;
 use mam\Role\Contract\RoleRepositoryInterface;
 use Spatie\Permission\Models\Role;
 
 class RoleRepository extends BaseRepository implements RoleRepositoryInterface
 {
+
+    public function __construct(Role $role)
+    {
+        parent::__construct($role);
+    }
 
     public function getAllRoles()
     {

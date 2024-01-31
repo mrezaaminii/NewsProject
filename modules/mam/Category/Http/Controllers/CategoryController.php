@@ -2,7 +2,6 @@
 
 namespace mam\Category\Http\Controllers;
 
-use Illuminate\Http\Request;
 use mam\Category\Http\Requests\CategoryRequest;
 use mam\Category\Model\Category;
 use mam\Category\Repositories\CategoryRepository;

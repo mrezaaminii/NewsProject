@@ -2,8 +2,6 @@
 
 namespace mam\Category\Contract;
 
-use mam\Category\Model\Category;
-
 interface CategoryRepositoryInterface
 {
     public function getAllCategories();

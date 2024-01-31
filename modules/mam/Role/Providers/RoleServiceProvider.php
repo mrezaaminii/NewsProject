@@ -6,7 +6,6 @@ use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use mam\Role\database\Seeders\PermissionSeeder;
-use mam\Role\Models\Permission;
 
 class RoleServiceProvider extends ServiceProvider
 {
@@ -18,7 +17,7 @@ class RoleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../Resources/Views','Role');
     }
 
-    public function boot()
+    public function boot(): void
     {
         $this->app->booted(function (){
             Route::matched(function (){
