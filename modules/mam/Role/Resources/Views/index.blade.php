@@ -38,7 +38,7 @@
                                     <td>
                                         @foreach($role->permissions as $permission)
                                         <span id="statusBadge{{$role->id}}" class="badge badge-primary">
-                                            @lang($permission)
+                                            @lang($permission->name)
                                         </span>
                                         @endforeach
                                     </td>

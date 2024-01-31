@@ -3,6 +3,7 @@
 namespace mam\Role\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use mam\Home\Repositories\BaseRepository;
 use mam\Role\Contract\RoleRepositoryInterface;
 use Spatie\Permission\Models\Role;
@@ -22,11 +23,13 @@ class RoleRepository extends BaseRepository implements RoleRepositoryInterface
 
     public function storeRole(array $data)
     {
-        return Role::create(['name' => $data['name']])->syncPermissions(collect($data['permissions']));
+//        dd($data);
+        return Role::create(['name' => $data['name']])->syncPermissions($data['permissions']);
     }
 
     public function updateRole(int $id, array $data)
     {
+        DB::beginTransaction();
         $role = $this->findById($id);
         return $role->syncPermissions(collect($data['permissions']))->update(['name' => $data['name']]);
     }

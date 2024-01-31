@@ -35,7 +35,8 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->repository->storeRole($request->only('name','permissions'));
+        $this->repository->storeRole($request->only('name','permissions'));
+        return to_route('roles.index');
     }
 
     /**
@@ -53,7 +54,8 @@ class RoleController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        return $this->repository->updateRole($id,$request->only('name','permissions'));
+        $this->repository->updateRole($id,$request->only('name','permissions'));
+        return to_route('roles.index');
     }
 
     /**
@@ -61,6 +63,7 @@ class RoleController extends Controller
      */
     public function destroy(int $id)
     {
-        return $this->repository->deleteRole($id);
+        $this->repository->deleteRole($id);
+        return to_route('roles.index');
     }
 }
