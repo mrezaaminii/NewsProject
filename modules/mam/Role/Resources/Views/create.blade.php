@@ -30,11 +30,9 @@
                                         دسترسی ها
                                     </label>
                                     @foreach($permissions as $permission)
-                                    <div class="form-group">
-                                        <div class="">
+                                    <div class="form-check">
                                             <input type="checkbox" name="permissions[]" id="permission{{$loop->iteration}}" class="checkbox checkbox-primary" value="{{$permission->name}}">
                                             <label for="permission{{$loop->iteration}}">@lang($permission->name)</label>
-                                        </div>
                                     </div>
                                     @endforeach
                                     <button type="submit" class="btn btn-outline-success">ذخیره</button>
