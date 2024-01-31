@@ -23,4 +23,5 @@
 <div class="rightbar-overlay"></div>
 </body>
 @include('Panel::partials.js')
+@include('sweetalert::alert')
 </html>

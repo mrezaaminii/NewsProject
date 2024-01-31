@@ -37,6 +37,7 @@ class RoleController extends Controller
     public function store(RoleRequest $request)
     {
         $this->repository->storeRole($request->only('name','permissions'));
+        alert()->success('ساخت مقام', 'مقام با موفقیت ساخته شد');
         return to_route('roles.index');
     }
 
@@ -56,6 +57,7 @@ class RoleController extends Controller
     public function update(RoleRequest $request, int $id)
     {
         $this->repository->updateRole($id,$request->only('name','permissions'));
+        alert()->success('ویرایش مقام', 'مقام با موفقیت ویرایش شد');
         return to_route('roles.index');
     }
 
@@ -65,6 +67,7 @@ class RoleController extends Controller
     public function destroy(int $id)
     {
         $this->repository->deleteRole($id);
+        alert()->success('حذف مقام', 'مقام با موفقیت حذف شد');
         return to_route('roles.index');
     }
 }
