@@ -4,6 +4,7 @@ namespace mam\Role\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use mam\Role\Http\Requests\RoleRequest;
 use mam\Role\Repositories\RoleRepository;
 use mam\Role\Services\PermissionService;
 
@@ -33,7 +34,7 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
         $this->repository->storeRole($request->only('name','permissions'));
         return to_route('roles.index');
@@ -52,7 +53,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(RoleRequest $request, int $id)
     {
         $this->repository->updateRole($id,$request->only('name','permissions'));
         return to_route('roles.index');
