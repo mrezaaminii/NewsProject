@@ -22,7 +22,7 @@ class RoleRepository extends BaseRepository implements RoleRepositoryInterface
     public function updateRole(int $id, array $data)
     {
         $role = $this->findById($id);
-        $role->syncPermissions(collect($data['permissions']))->update(['name' => $data['name']]);
+        return $role->syncPermissions(collect($data['permissions']))->update(['name' => $data['name']]);
     }
 
     public function deleteRole(int $id)
