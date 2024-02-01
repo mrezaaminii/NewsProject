@@ -73,8 +73,8 @@ class UserController extends Controller
         return to_route('users.index');
     }
 
-//    public function addRoleView()
-//    {
-//
-//    }
+    public function addRoleView($userId)
+    {
+
+    }
 }

@@ -54,11 +54,12 @@
                                     <td>{{ Helper::convertEnglishToPersian(jdate($user->created_at)->format('Y-m-d')) }}</td>
                                     <td>
                                         <div class="row">
-                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">ویرایش</a>
+                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                                            <a href="{{route('users.role.view',$user->id)}}" class="btn btn-success ml-1"><i class="fa fa-plus"></i></a>
                                             <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger ml-1">حذف</button>
+                                                <button type="submit" class="btn btn-danger ml-1"><i class="fa fa-trash"></i></button>
                                             </form>
                                         </div>
                                     </td>
