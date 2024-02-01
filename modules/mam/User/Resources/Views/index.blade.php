@@ -26,6 +26,7 @@
                                 <th>#</th>
                                 <th>نام کاربری</th>
                                 <th>ایمیل</th>
+                                <th>مقام ها</th>
                                 <th>وضعیت تایید ایمیل</th>
                                 <th>تاریخ عضویت</th>
                                 <th>عملیات</th>
@@ -37,6 +38,13 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>
+                                        <ul>
+                                            @foreach($user->roles as $role)
+                                        {{ $role->name }}
+                                            @endforeach
+                                        </ul>
+                                    </td>
                                     <td>
 
                                         <span class="badge badge-{{ $user->cssStatusEmailVerifiedAt() }}">

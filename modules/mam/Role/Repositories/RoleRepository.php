@@ -2,8 +2,6 @@
 
 namespace mam\Role\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 use mam\Home\Repositories\BaseRepository;
 use mam\Role\Contract\RoleRepositoryInterface;
 use Spatie\Permission\Models\Role;

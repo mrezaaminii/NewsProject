@@ -72,4 +72,9 @@ class UserController extends Controller
         $this->repository->deleteUser($id);
         return to_route('users.index');
     }
+
+//    public function addRoleView()
+//    {
+//
+//    }
 }
