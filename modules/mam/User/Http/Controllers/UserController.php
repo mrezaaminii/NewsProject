@@ -83,8 +83,12 @@ class UserController extends Controller
         return view('User::add-role',compact('roles','user'));
     }
 
-    public function assignRoleMethod(RoleAssignRequest $request,$userId)
+    public function assignRoleMethod(RoleAssignRequest $request,$userId,UserService $service)
     {
-
+        $user = $this->repository->findById($userId);
+        dd($user);
+        $service->assignOperation($request->role,$userId);
+        alert()->success('انتساب مقام',"انتساب مقام به کاربر $user->name با موفقیت انجام شد");
+        return to_route('users.index');
     }
 }
