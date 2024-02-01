@@ -3,8 +3,11 @@
 namespace mam\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use mam\Role\Repositories\RoleRepository;
+use mam\User\Http\Requests\RoleAssignRequest;
 use mam\User\Http\Requests\UserRequest;
 use mam\User\Repositories\UserRepository;
+use mam\User\Services\UserService;
 
 class UserController extends Controller
 {
@@ -73,7 +76,14 @@ class UserController extends Controller
         return to_route('users.index');
     }
 
-    public function addRoleView($userId)
+    public function addRoleView($userId,RoleRepository $roleRepository)
+    {
+        $roles = $roleRepository->getAllRoles();
+        $user = $this->repository->findById($userId);
+        return view('User::add-role',compact('roles','user'));
+    }
+
+    public function assignRoleMethod(RoleAssignRequest $request,$userId)
     {
 
     }

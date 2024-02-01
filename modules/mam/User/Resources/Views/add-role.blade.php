@@ -18,15 +18,15 @@
                                         @endforeach
                                     </ul>
                                 @endif
-                                <form class="form-horizontal" role="form" method="POST" action="{{ route('users.store') }}">
+                                <form class="form-horizontal" role="form" method="POST" action="{{ route('users.role.store',$user->id) }}">
                                     @csrf
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" for="keyword">وضعیت</label>
                                         <div class="col-sm-10">
-                                            <select name="status"
+                                            <select name="role"
                                                     class="form-control @error('status') is-invalid @enderror">
-                                                @foreach(\mam\Category\Model\Category::$statuses as $status)
-                                                    <option @if($status === $category->status) selected @endif value="{{ $status }}">@lang($status)</option>
+                                                @foreach($roles as $role)
+                                                    <option value="{{ $role->name }}">@lang($role->name)</option>
                                                 @endforeach
                                             </select>
                                             @error('status')
