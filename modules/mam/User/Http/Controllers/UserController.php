@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use mam\Role\Repositories\RoleRepository;
 use mam\User\Http\Requests\RoleAssignRequest;
 use mam\User\Http\Requests\UserRequest;
+use mam\User\Models\User;
 use mam\User\Repositories\UserRepository;
 use mam\User\Services\UserService;
 use Spatie\Permission\Models\Role;

@@ -2,8 +2,10 @@
 
 namespace mam\Panel\Providers;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use mam\Panel\Models\Panel;
 
 class PanelServiceProvider extends ServiceProvider
 {
@@ -11,6 +13,7 @@ class PanelServiceProvider extends ServiceProvider
     {
         Route::middleware('web')->group(__DIR__.'/../Routes/panel_routes.php');
         $this->mergeConfigFrom(__DIR__.'/../Config/config.php','panelConfig');
+        Gate::policy('index',Panel::class);
         $this->loadViewsFrom(__DIR__.'/../Resources/Views','Panel');
     }
     public function boot(): void

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use mam\Role\database\Seeders\PermissionSeeder;
 use mam\Role\Models\Permission;
+use mam\Role\Models\Role;
+use mam\Role\Policies\RolePolicy;
 
 class RoleServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,7 @@ class RoleServiceProvider extends ServiceProvider
         Gate::before(function ($user){
             return $user->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN) ? true : null;
         });
+        Gate::policy(Role::class,RolePolicy::class);
         $this->loadViewsFrom(__DIR__.'/../Resources/Views','Role');
     }
 
