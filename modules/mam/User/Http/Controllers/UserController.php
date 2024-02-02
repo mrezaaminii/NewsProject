@@ -86,8 +86,7 @@ class UserController extends Controller
     public function assignRoleMethod(RoleAssignRequest $request,$userId,UserService $service)
     {
         $user = $this->repository->findById($userId);
-        dd($user);
-        $service->assignOperation($request->role,$userId);
+        $service->assignOperation($request->role,$user);
         alert()->success('انتساب مقام',"انتساب مقام به کاربر $user->name با موفقیت انجام شد");
         return to_route('users.index');
     }
