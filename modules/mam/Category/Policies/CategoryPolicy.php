@@ -1,11 +1,11 @@
 <?php
 
-namespace mam\Panel\Policies;
+namespace mam\Category\Policies;
 
 use mam\Role\Models\Permission;
 use mam\User\Models\User;
 
-class PanelPolicy
+class CategoryPolicy
 {
     /**
      * Create a new policy instance.
@@ -17,7 +17,7 @@ class PanelPolicy
 
     public function index(User $user)
     {
-        if ($user->hasPermissionTo(Permission::PERMISSION_PANEL)){
+        if ($user->hasPermissionTo(Permission::PERMISSION_CATEGORIES)){
             return true;
         }
     }
