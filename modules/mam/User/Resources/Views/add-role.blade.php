@@ -23,12 +23,16 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" for="keyword">وضعیت</label>
                                         <div class="col-sm-10">
+                                            @if(!$notAssignedRoles)
                                             <select name="role"
                                                     class="form-control @error('status') is-invalid @enderror">
-                                                @foreach($roles as $role)
+                                                @foreach($notAssignedRoles as $role)
                                                     <option value="{{ $role->name }}">@lang($role->name)</option>
                                                 @endforeach
                                             </select>
+                                            @else
+                                                <p>مقامی برای انتساب وجود ندارد</p>
+                                            @endif
                                             @error('status')
                                             <br>
                                             <div class="alert alert-danger">{{ $message }}</div>

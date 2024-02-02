@@ -81,7 +81,8 @@ class UserController extends Controller
     {
         $roles = $roleRepository->getAllRoles();
         $user = $this->repository->findById($userId);
-        return view('User::add-role',compact('roles','user'));
+        $notAssignedRoles = $roles->diff($user->roles);
+        return view('User::add-role',compact('roles','user','notAssignedRoles'));
     }
 
     public function assignRoleMethod(RoleAssignRequest $request,$userId,UserService $service)
