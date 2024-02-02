@@ -3,9 +3,11 @@
 namespace mam\Role\Providers;
 
 use Database\Seeders\DatabaseSeeder;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use mam\Role\database\Seeders\PermissionSeeder;
+use mam\Role\Models\Permission;
 
 class RoleServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,9 @@ class RoleServiceProvider extends ServiceProvider
         Route::middleware('web')->group(__DIR__.'/../Routes/role_routes.php');
         $this->loadJsonTranslationsFrom(__DIR__.'/../Resources/Lang/');
         DatabaseSeeder::$seeders[] = PermissionSeeder::class;
+        Gate::before(function ($user){
+            return $user->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN) ? true : null;
+        });
         $this->loadViewsFrom(__DIR__.'/../Resources/Views','Role');
     }
 
