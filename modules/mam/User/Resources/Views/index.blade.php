@@ -44,11 +44,11 @@
                                                 <li>
                                         {{ $role->name }}
                                                     <a href="#"
-                                                       onclick="event.preventDefault(); document.getElementById('delete-role{{ $user->id }}').submit()">
+                                                       onclick="event.preventDefault(); document.getElementById('delete-role{{$role->id}}').submit()">
                                                         <i class="fa fa-minus-circle"></i>
                                                     </a>
                                                 </li>
-                                                <form id="delete-role{{$user->id}}" action="{{ route('users.role.remove',['userId' => $user->id, 'roleId' => $role->id]) }}" method="POST">
+                                                <form id="delete-role{{$role->id}}" action="{{ route('users.role.remove',['userId' => $user->id, 'roleId' => $role->id]) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
