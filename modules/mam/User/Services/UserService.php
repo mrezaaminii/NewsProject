@@ -8,4 +8,9 @@ class UserService
     {
         return $user->assignRole($role);
     }
+
+    public function removeAssignedRoleOperation($role,$user)
+    {
+        return $user->removeRole($role);
+    }
 }

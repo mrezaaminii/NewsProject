@@ -39,9 +39,19 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        <ul>
+                                        <ul style="list-style-type: none">
                                             @foreach($user->roles as $role)
+                                                <li>
                                         {{ $role->name }}
+                                                    <a href="#"
+                                                       onclick="event.preventDefault(); document.getElementById('delete-role{{ $user->id }}').submit()">
+                                                        <i class="fa fa-minus-circle"></i>
+                                                    </a>
+                                                </li>
+                                                <form id="delete-role{{$user->id}}" action="{{ route('users.role.remove',['userId' => $user->id, 'roleId' => $role->id]) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
                                             @endforeach
                                         </ul>
                                     </td>

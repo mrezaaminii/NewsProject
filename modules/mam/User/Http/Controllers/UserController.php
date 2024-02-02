@@ -8,6 +8,7 @@ use mam\User\Http\Requests\RoleAssignRequest;
 use mam\User\Http\Requests\UserRequest;
 use mam\User\Repositories\UserRepository;
 use mam\User\Services\UserService;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -88,6 +89,15 @@ class UserController extends Controller
         $user = $this->repository->findById($userId);
         $service->assignOperation($request->role,$user);
         alert()->success('انتساب مقام',"انتساب مقام به کاربر $user->name با موفقیت انجام شد");
+        return to_route('users.index');
+    }
+
+    public function deleteAssignedRole($userId,$roleId,UserService $service)
+    {
+        $user = $this->repository->findById($userId);
+        $role = Role::findById($roleId);
+        $service->removeAssignedRoleOperation($role->name,$user);
+        alert()->success('حذف مقام',"مقام $role->name از کاربر $user->name سلب شد");
         return to_route('users.index');
     }
 }
