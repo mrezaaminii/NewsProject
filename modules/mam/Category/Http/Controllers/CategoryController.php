@@ -17,6 +17,7 @@ class CategoryController extends \App\Http\Controllers\Controller
 
     public function index()
     {
+        $this->authorize('index',Category::class);
         $categories = $this->repository->getAllCategories();
         return view('Category::index',compact('categories'));
     }
@@ -26,6 +27,7 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function create()
     {
+        $this->authorize('index',Category::class);
         $categories = $this->filterCategoriesForSelectOption();
         return view('Category::create',compact('categories'));
     }
@@ -35,8 +37,10 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function store(CategoryRequest $request): \Illuminate\Http\RedirectResponse
     {
+        $this->authorize('index',Category::class);
         $this->repository->storeCategory($request->only((new Category())->getFillable()));
         return to_route('categories.index');
+        $this->authorize('index',Category::class);
     }
 
     /**
@@ -53,6 +57,7 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function edit(int $id)
     {
+        $this->authorize('index',Category::class);
         $category = $this->repository->findById($id);
         $categories = $this->filterCategoriesForSelectOption()->except($id);
         return view('Category::edit', compact('category','categories'));
@@ -63,12 +68,14 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function update(CategoryRequest $request, int $id): \Illuminate\Http\RedirectResponse
     {
+        $this->authorize('index',Category::class);
         $this->repository->updateCategory($id,$request->only((new Category())->getFillable()));
         return to_route('categories.index');
     }
 
     public function filterCategoriesForSelectOption()
     {
+        $this->authorize('index',Category::class);
         return $this->repository->getAll()->pluck('title','id')->prepend('--','');
     }
 
@@ -77,12 +84,14 @@ class CategoryController extends \App\Http\Controllers\Controller
      */
     public function destroy(int $id): \Illuminate\Http\RedirectResponse
     {
+        $this->authorize('index',Category::class);
         $this->repository->deleteCategory($id);
         return to_route('categories.index');
     }
 
     public function changeStatus(int $id)
     {
+        $this->authorize('index',Category::class);
         return $this->repository->changeCategoryStatus($id);
     }
 }
