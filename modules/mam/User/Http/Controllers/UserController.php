@@ -21,6 +21,7 @@ class UserController extends Controller
 
     public function index()
     {
+        $this->authorize('index',User::class);
         $users = $this->repository->getAllUsers();
         return view('User::index',compact('users'));
     }
@@ -30,6 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('index',User::class);
         return view('User::create');
     }
 
@@ -38,6 +40,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
+        $this->authorize('index',User::class);
         $this->repository->storeUser($request->all());
         return to_route('users.index');
     }
@@ -56,6 +59,7 @@ class UserController extends Controller
      */
     public function edit(int $id)
     {
+        $this->authorize('index',User::class);
         $user = $this->repository->findById($id);
         return view('User::edit',compact('user'));
     }
@@ -65,6 +69,7 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, string $id)
     {
+        $this->authorize('index',User::class);
         $this->repository->updateUser($id,$request->all());
         return to_route('users.index');
     }
@@ -74,12 +79,14 @@ class UserController extends Controller
      */
     public function destroy(int $id)
     {
+        $this->authorize('index',User::class);
         $this->repository->deleteUser($id);
         return to_route('users.index');
     }
 
     public function addRoleView($userId,RoleRepository $roleRepository)
     {
+        $this->authorize('index',User::class);
         $roles = $roleRepository->getAllRoles();
         $user = $this->repository->findById($userId);
         $notAssignedRoles = $roles->diff($user->roles);
@@ -88,6 +95,7 @@ class UserController extends Controller
 
     public function assignRoleMethod(RoleAssignRequest $request,$userId,UserService $service)
     {
+        $this->authorize('index',User::class);
         $user = $this->repository->findById($userId);
         $service->assignOperation($request->role,$user);
         alert()->success('انتساب مقام',"انتساب مقام به کاربر $user->name با موفقیت انجام شد");
@@ -96,6 +104,7 @@ class UserController extends Controller
 
     public function deleteAssignedRole($userId,$roleId,UserService $service)
     {
+        $this->authorize('index',User::class);
         $user = $this->repository->findById($userId);
         $role = Role::findById($roleId);
         $service->removeAssignedRoleOperation($role->name,$user);
