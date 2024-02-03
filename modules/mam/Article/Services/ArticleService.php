@@ -4,6 +4,7 @@ namespace mam\Article\Services;
 
 use Illuminate\Support\Facades\Storage;
 use mam\Article\Http\Requests\ArticleRequest;
+use mam\Article\Models\Article;
 
 class ArticleService
 {
@@ -21,5 +22,18 @@ class ArticleService
         }
 
         return false;
+    }
+
+    public function checkIfImageSentWhileUpdating(Article $article,ArticleRequest $request)
+    {
+        if ($article->imagePath && $article->imageName){
+            Storage::disk('public')->delete($article->imagePath);
+            $article->imagePath = null;
+            $article->imageName = null;
+            $article->save();
+            return $this->checkIfImageSent($request);
+        }else{
+            return $this->checkIfImageSent($request);
+        }
     }
 }

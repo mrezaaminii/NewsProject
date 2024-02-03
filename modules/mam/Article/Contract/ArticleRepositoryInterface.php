@@ -9,7 +9,7 @@ interface ArticleRepositoryInterface
     public function getAllArticles();
     public function createArticle(array $data);
     public function filterRequest(ArticleRequest $request);
-    public function uploadArticle(int $id,array $data);
+    public function updateArticle(int $id,array $data);
     public function deleteArticles(int $id);
     public function changeArticleStatus(int $id);
 }

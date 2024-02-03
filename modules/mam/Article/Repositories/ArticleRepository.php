@@ -26,7 +26,7 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
         return $this->storeRecord($data);
     }
 
-    public function uploadArticle(int $id, array $data)
+    public function updateArticle(int $id, array $data)
     {
         return $this->updateRecord($id,$data);
     }
