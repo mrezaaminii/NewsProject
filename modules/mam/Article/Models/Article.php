@@ -13,6 +13,8 @@ class Article extends Model implements Viewable
 {
     use HasFactory, SoftDeletes,InteractsWithViews,Likeable;
 
+    protected $fillable = ['title','user_id','category_id','time_to_read','slug','imageName','imagePath','score','status','type','body'];
+
     public const STATUS_ACTIVE = 'active';
     public const STATUS_PENDING = 'pending';
     public const STATUS_INACTIVE = 'inactive';
