@@ -35,7 +35,6 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function deleteRecord(int $id): ?bool
     {
-        $record = $this->findById($id);
-        return $record->delete();
+        return $this->findById($id)->delete();
     }
 }

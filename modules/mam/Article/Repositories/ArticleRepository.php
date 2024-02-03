@@ -23,17 +23,17 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
 
     public function createArticle(array $data)
     {
-
+        return $this->storeRecord($data);
     }
 
     public function uploadArticle(int $id, array $data)
     {
-
+        return $this->updateRecord($id,$data);
     }
 
     public function deleteArticles(int $id)
     {
-
+        return $this->deleteRecord($id);
     }
 
     public function changeArticleStatus(int $id)
