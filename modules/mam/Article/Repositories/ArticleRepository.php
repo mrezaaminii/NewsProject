@@ -50,11 +50,11 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
         'score' => 'int',
         'status' => 'string',
         'type' => 'string',
-        'body' => 'text'
+        'body' => 'string'
     ])]
     public function filterRequest(ArticleRequest $request)
     {
-        list($imageName,$imagePath) = $this->service->nameImage($request->file('image'));
+        list($imageName,$imagePath) = $this->service->checkIfImageSent($request);
         return [
             'user_id' => auth()->id(),
             'category_id' => $request->category_id,
