@@ -53,7 +53,7 @@
                                             <input type="text"
                                                    class="form-control @error('time_to_read') is-invalid @enderror"
                                                    value="{{ old('time_to_read') }}" id="time_to_read" name="time_to_read"
-                                                   placeholder="کلمات کلیدی مقاله را وارد کنید">
+                                                   placeholder="زمان خواندن مقاله را وارد کنید">
                                             @error('time_to_read')
                                             <br>
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -156,6 +156,18 @@
                                     <br>
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label" for="image">تصویر مقاله</label>
+                                        <div class="col-sm-10">
+                                            <input type="file"
+                                                   class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+                                            @error('image')
+                                            <br>
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
 
                                     <button type="submit" class="btn btn-outline-success">ذخیره</button>
