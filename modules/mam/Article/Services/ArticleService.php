@@ -30,7 +30,6 @@ class ArticleService
             Storage::disk('public')->delete($article->imagePath);
             $article->imagePath = null;
             $article->imageName = null;
-            $article->save();
             return $this->checkIfImageSent($request);
         }else{
             return $this->checkIfImageSent($request);

@@ -42,7 +42,7 @@
                                 <tr class="text-center">
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>
-                                        <img style="max-width: 20px" src="{{ $article->imagePath }}" alt="article-image">
+                                        <img style="max-width: 50px" src="{{ asset('storage'.DIRECTORY_SEPARATOR.$article->imagePath) }}" alt="article-image">
                                     </td>
                                     <td>{{ $article->title }}</td>
                                     <td>
@@ -50,7 +50,7 @@
                                             @lang($article->status)
                                         </span>
                                     </td>
-                                    <td>{{ $article->type }}</td>
+                                    <td>@lang($article->type)</td>
                                     <td>{{ $article->time_to_read }}</td>
                                     <td>{{ $article->score }}</td>
                                     <td>{{ $article->category?->title }}</td>
