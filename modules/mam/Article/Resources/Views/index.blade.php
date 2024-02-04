@@ -62,9 +62,9 @@
                                             <button type="button"
                                                     data-url="{{route('articles.change.status',$article->id)}}"
                                                     onclick="changeStatus(this,{{$article}})"
-                                                    class="btn @if($article->status === 'active') btn-dark @else btn-success @endif ml-1"
+                                                    class="btn @if($article->status === 'active') btn-dark @elseif($article->status === 'pending') btn-primary @else btn-success @endif ml-1"
                                                     title="تغییر وضعیت">
-                                                <i class="@if($article->status === 'active') fa fa-times @else fa fa-check @endif"></i>
+                                                <i class="@if($article->status === 'active') fa fa-spinner @elseif($article->status === 'pending') fa fa-times @else fa fa-check @endif"></i>
                                             </button>
                                             <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
                                                 @csrf
@@ -90,8 +90,8 @@
 @section('js')
     <script src="{{ asset('assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script>
-        function changeStatus(element,category){
-        const statusBadge = document.getElementById('statusBadge' + category.id);
+        function changeStatus(element,article){
+        const statusBadge = document.getElementById('statusBadge' + article.id);
             $.ajax({
                 url: element.getAttribute('data-url'),
                 type:"GET",
@@ -100,12 +100,17 @@
                         statusBadge.innerText = 'فعال';
                         element.classList.remove('btn-success');
                         element.classList.add('btn-dark');
-                        element.firstElementChild.className = "fa fa-times"
+                        element.firstElementChild.className = "fa fa-spinner"
+                    }else if (response.status === 'pending'){
+                        statusBadge.innerText = 'در حال پردازش';
+                        element.classList.remove('btn-dark');
+                        element.classList.add('btn-primary');
+                        element.firstElementChild.className = "fa fa-times";
                     }else{
                         statusBadge.innerText = 'غیر فعال';
-                        element.classList.remove('btn-dark');
+                        element.classList.remove('btn-primary');
                         element.classList.add('btn-success');
-                        element.firstElementChild.className = "fa fa-check";
+                        element.firstElementChild.className = "fa fa-check"
                     }
                 }
             })

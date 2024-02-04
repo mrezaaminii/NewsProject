@@ -84,8 +84,9 @@ class ArticleController extends Controller
         return to_route('articles.index');
     }
 
-    public function changeStatus()
+    public function changeStatus(int $id)
     {
-
+        $this->authorize('index',Article::class);
+        return $this->repository->changeArticleStatus($id);
     }
 }

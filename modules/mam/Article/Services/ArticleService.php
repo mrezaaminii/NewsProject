@@ -41,4 +41,15 @@ class ArticleService
         $title = str_replace('_','',$title);
         return preg_replace('/\s/','-',$title);
     }
+
+    public function changeArticleStatusService($article)
+    {
+        $status = match ($article->status) {
+            'active' => $article->status = 'pending',
+            'pending' => $article->status = 'inactive',
+            default => $article->status = 'active'
+        };
+        $article->save();
+        return response()->json(['status' => $status]);
+    }
 }

@@ -38,7 +38,7 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
 
     public function changeArticleStatus(int $id)
     {
-
+        return $this->service->changeArticleStatusService($this->findById($id));
     }
 
     #[ArrayShape([
