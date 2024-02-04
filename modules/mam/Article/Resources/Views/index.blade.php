@@ -2,6 +2,7 @@
 
 @php
     use App\Helper\Helper;
+    use Illuminate\Support\Facades\Storage;
 @endphp
 
 @section('title', 'لیست مقاله ها')
@@ -41,7 +42,7 @@
                                 <tr class="text-center">
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>
-                                        <img style="max-width: 20px" src="{{ asset($article->imagePath) }}" alt="article-image">
+                                        <img style="max-width: 20px" src="{{ $article->imagePath }}" alt="article-image">
                                     </td>
                                     <td>{{ $article->title }}</td>
                                     <td>

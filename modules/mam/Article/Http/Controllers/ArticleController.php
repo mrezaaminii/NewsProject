@@ -45,7 +45,7 @@ class ArticleController extends Controller
         $articleData = $this->repository->filterRequest($request);
         $this->repository->createArticle($articleData);
         alert()->success('ذخیره مقاله','مقاله با موفقیت ذخیره شد');
-        return to_route('Article::index');
+        return to_route('articles.index');
     }
 
     /**
@@ -70,7 +70,7 @@ class ArticleController extends Controller
         $data = $this->repository->filterRequest($request,$article);
         $this->repository->updateArticle($id,$data);
         alert()->success('ویرایش مقاله','مقاله با موفقیت ویرایش شد');
-        return to_route('Article::index');
+        return to_route('articles.index');
     }
 
     /**
@@ -81,6 +81,11 @@ class ArticleController extends Controller
         $this->authorize('index',Article::class);
         $this->repository->deleteArticles($id);
         alert()->success('حذف مقاله','مقاله با موفقیت حذف شد');
-        return to_route('Article::index');
+        return to_route('articles.index');
+    }
+
+    public function changeStatus()
+    {
+
     }
 }

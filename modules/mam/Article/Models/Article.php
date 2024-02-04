@@ -2,6 +2,7 @@
 
 namespace mam\Article\Models;
 
+use App\Helper\Helper;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -35,6 +36,11 @@ class Article extends Model implements Viewable
         self::TYPE_VIP,
         self::TYPE_NORMAL
     ];
+
+    public function setTimeToReadAttribute($value)
+    {
+        $this->attributes['time_to_read'] = Helper::convertPersianToEnglish($value);
+    }
 
     public function user(): BelongsTo
     {

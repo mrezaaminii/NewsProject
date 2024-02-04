@@ -25,9 +25,8 @@ class ArticleRequest extends FormRequest
     {
         $rules = [
             'title' => 'required|min:3|max:200|string|unique:articles,title',
-            'user_id' => 'required|numeric|exists:users,id',
             'category_id' => 'required|numeric|exists:categories,id',
-            'time_to_read' => 'required|numeric',
+            'time_to_read' => 'required',
             'keywords' => 'nullable|min:3|max:255',
             'description' => 'nullable|min:3',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
