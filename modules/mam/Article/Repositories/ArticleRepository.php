@@ -52,9 +52,13 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
         'type' => 'string',
         'body' => 'string'
     ])]
-    public function filterRequest(ArticleRequest $request)
+    public function filterRequest(ArticleRequest $request,$article = null)
     {
+        if ($request->method() === 'PUT' || $request->method() === 'PATCH'){
+            list($imageName,$imagePath) = $this->service->checkIfImageSentWhileUpdating($article,$request);
+        }else{
         list($imageName,$imagePath) = $this->service->checkIfImageSent($request);
+        }
         return [
             'user_id' => auth()->id(),
             'category_id' => $request->category_id,
