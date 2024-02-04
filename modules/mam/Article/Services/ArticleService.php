@@ -36,4 +36,10 @@ class ArticleService
             return $this->checkIfImageSent($request);
         }
     }
+
+    public function makeSlug($title): array|string|null
+    {
+        $title = str_replace('_','',$title);
+        return preg_replace('/\s/','-',$title);
+    }
 }
