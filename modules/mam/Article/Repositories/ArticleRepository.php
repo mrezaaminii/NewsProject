@@ -41,10 +41,14 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
 
     }
 
-    #[ArrayShape(['title' => 'string',
+    #[ArrayShape([
+        'title' => 'string',
         'user_id' => 'int',
         'category_id' => 'int',
         'time_to_read' => 'int',
+        'slug' => 'string',
+        'keywords' => 'string',
+        'description' => 'string',
         'imagePath' => 'string',
         'imageName' => 'string',
         'score' => 'int',
@@ -60,9 +64,13 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
         list($imageName,$imagePath) = $this->service->checkIfImageSent($request);
         }
         return [
+            'title' => $request->title,
             'user_id' => auth()->id(),
             'category_id' => $request->category_id,
             'time_to_read' => $request->time_to_read,
+            'slug' => $this->service->makeSlug($request->title),
+            'keywords' => $request->keywords,
+            'description' => $request->description,
             'imagePath' => $imagePath,
             'imageName' => $imageName,
             'score' => $request->score,
