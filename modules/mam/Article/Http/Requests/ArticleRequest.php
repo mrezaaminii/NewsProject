@@ -43,4 +43,12 @@ class ArticleRequest extends FormRequest
         }
         return $rules;
     }
+
+    public function attributes()
+    {
+        return [
+          'user_id' => 'کاربر',
+          'time_to_read' => 'زمان خواندن',
+        ];
+    }
 }

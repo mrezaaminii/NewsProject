@@ -13,6 +13,7 @@ class ArticleServiceProvider extends ServiceProvider
     public function register(): void
     {
         Route::middleware('web')->group(__DIR__.'/../Routes/article_routes.php');
+        $this->loadJsonTranslationsFrom(__DIR__.'/../Resources/Lang/');
         $this->loadViewsFrom(__DIR__.'/../Resources/Views','Article');
         Gate::policy(Article::class,ArticlePolicy::class);
         $this->loadMigrationsFrom(__DIR__.'/../database/Migrations');

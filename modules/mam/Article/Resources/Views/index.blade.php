@@ -12,7 +12,7 @@
             <div class="col-lg-12">
                 <div class="card-box">
                     <div class="float-right">
-                        <a href="{{ route('categories.create') }}" class="arrow-none btn btn-primary text-white"
+                        <a href="{{ route('articles.create') }}" class="arrow-none btn btn-primary text-white"
                            aria-expanded="false">
                             ساخت مقاله جدید
                         </a>
