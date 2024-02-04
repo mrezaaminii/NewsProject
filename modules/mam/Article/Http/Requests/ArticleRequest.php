@@ -28,6 +28,8 @@ class ArticleRequest extends FormRequest
             'user_id' => 'required|numeric|exists:users,id',
             'category_id' => 'required|numeric|exists:categories,id',
             'time_to_read' => 'required|numeric',
+            'keywords' => 'nullable|min:3|max:255',
+            'description' => 'nullable|min:3',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'score' => 'required|numeric|in:0,1,2,3,4,5,6,7,8,9,10',
             'status' => ['required',Rule::in(Article::$statuses)],

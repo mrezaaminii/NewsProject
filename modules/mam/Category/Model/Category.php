@@ -5,6 +5,7 @@ namespace mam\Category\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use mam\Article\Models\Article;
 use mam\User\Models\User;
 
 class Category extends Model
@@ -26,6 +27,11 @@ class Category extends Model
     public function subCategories(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(__CLASS__,'parent_id');
+    }
+
+    public function articles(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Article::class);
     }
 
     public function getParent()

@@ -22,7 +22,7 @@ class ArticleController extends Controller
     public function index()
     {
         $this->authorize('index',Article::class);
-        $articles = $this->repository->getAllArticles();
+        $articles = $this->repository->getAllArticles()->paginate(10);
         return view('Article::index',compact('articles'));
     }
 

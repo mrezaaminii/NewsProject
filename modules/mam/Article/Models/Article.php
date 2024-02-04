@@ -6,14 +6,17 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use mam\Category\Model\Category;
+use mam\User\Models\User;
 use Overtrue\LaravelLike\Traits\Likeable;
 
 class Article extends Model implements Viewable
 {
     use HasFactory, SoftDeletes,InteractsWithViews,Likeable;
 
-    protected $fillable = ['title','user_id','category_id','time_to_read','slug','imageName','imagePath','score','status','type','body'];
+    protected $fillable = ['title','user_id','category_id','time_to_read','slug','keywords','description','imageName','imagePath','score','status','type','body'];
 
     public const STATUS_ACTIVE = 'active';
     public const STATUS_PENDING = 'pending';
@@ -32,4 +35,14 @@ class Article extends Model implements Viewable
         self::TYPE_VIP,
         self::TYPE_NORMAL
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class,'category_id');
+    }
 }
