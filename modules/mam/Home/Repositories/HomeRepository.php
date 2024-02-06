@@ -6,6 +6,8 @@ use mam\Article\Models\Article;
 use mam\Category\Model\Category;
 use mam\Home\Contract\HomeRepositoryInterface;
 use mam\Home\Repositories\BaseRepository;
+use mam\Role\Models\Permission;
+use mam\User\Models\User;
 
 class HomeRepository extends BaseRepository implements HomeRepositoryInterface
 {
@@ -26,5 +28,10 @@ class HomeRepository extends BaseRepository implements HomeRepositoryInterface
     public function getVipArticleOrderedByViews()
     {
         return Article::query()->where('type',Article::TYPE_VIP)->where('status',Article::STATUS_ACTIVE)->orderByViews()->latest()->limit(5)->get();
+    }
+
+    public function getUserAuthor()
+    {
+        return User::query()->permission(Permission::PERMISSION_AUTHORS)->limit(20)->get();
     }
 }

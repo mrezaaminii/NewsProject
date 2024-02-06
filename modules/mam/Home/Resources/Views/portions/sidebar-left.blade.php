@@ -39,60 +39,11 @@
             <div class="widget-header widget-header-style-1 position-relative mb-15">
                 <h5 class="widget-title pl-5">نویسندگان <span>برتر</span></h5>
             </div>
+            @foreach($homeRepository->getUserAuthor() as $author)
             <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
-               title="" data-original-title="الناز - 1034 پست"><img
+               title="" data-original-title="{{$author->name}} - {{$author->articles->count()}} مقاله"><img
                     src="assets/imgs/authors/author-2.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="مسعود - 245 پست"><img src="assets/imgs/authors/author-3.png"
-                                                          alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="مریم - 356 پست"><img src="assets/imgs/authors/author-4.png"
-                                                         alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
-               title="" data-original-title="مجید - 152 پست"><img
-                    src="assets/imgs/authors/author-5.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="بهمن - 245 پست"><img src="assets/imgs/authors/author-17.png"
-                                                         alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="حامد - 758 پست"><img src="assets/imgs/authors/author-7.png"
-                                                         alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="نادیا - 231 پست"><img src="assets/imgs/authors/author-8.png"
-                                                          alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
-               title="" data-original-title="فردین - 256 پست"><img
-                    src="assets/imgs/authors/author-9.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="ستاره - 652 پست"><img
-                    src="assets/imgs/authors/author-10.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
-               title="" data-original-title="حمید - 125 پست"><img
-                    src="assets/imgs/authors/author-11.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="مهتاب - 452 پست"><img
-                    src="assets/imgs/authors/author-12.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="ناصر - 124 پست"><img src="assets/imgs/authors/author-13.png"
-                                                         alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="مرجان - 1245 پست"><img
-                    src="assets/imgs/authors/author-14.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
-               title="" data-original-title="مرتضی - 1325 پست"><img
-                    src="assets/imgs/authors/author-15.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="نیلوفر - 562 پست"><img
-                    src="assets/imgs/authors/author-16.png" alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
-               title="" data-original-title="رضا - 256 پست"><img
-                    src="assets/imgs/authors/author-17.png" alt=""></a>
-            <a class="red-tooltip" href="#" data-toggle="tooltip" data-placement="top" title=""
-               data-original-title="یکتا - 652 پست"><img src="assets/imgs/authors/author-18.png"
-                                                         alt=""></a>
-            <a class="red-tooltip active" href="#" data-toggle="tooltip" data-placement="top"
-               title="" data-original-title="فرانک - 125 پست"><img
-                    src="assets/imgs/authors/author-20.png" alt=""></a>
+            @endforeach
         </div>
     </div>
     <!--Newsletter-->

@@ -7,4 +7,5 @@ interface HomeRepositoryInterface
     public function getVipPosts();
     public function getActiveCategories();
     public function getVipArticleOrderedByViews();
+    public function getUserAuthor();
 }
