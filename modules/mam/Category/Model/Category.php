@@ -39,9 +39,9 @@ class Category extends Model
         return $this->parentCategory()->first()?->title;
     }
 
-    protected const ACTIVE = 'active';
+    public const ACTIVE = 'active';
 
-    protected const INACTIVE = 'inactive';
+    public const INACTIVE = 'inactive';
 
     public static array $statuses = [self::ACTIVE,self::INACTIVE];
 
