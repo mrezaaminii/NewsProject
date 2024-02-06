@@ -5,7 +5,7 @@
 
 @section('content')
     <main class="position-relative">
-        @include('Home::portions.post-carausel')
+        @include('Home::portions.post-carausel',['vip_posts' => $homeRepository])
         <div class="container">
             <!--Ads-->
             @include('Home::portions.home-ads')
