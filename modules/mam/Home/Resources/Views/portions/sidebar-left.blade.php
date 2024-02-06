@@ -15,59 +15,21 @@
         </div>
         <div class="post-aside-style-1 border-radius-10 p-20 bg-white">
             <ul class="list-post">
+                @foreach($homeRepository->getVipArticleOrderedByViews() as $article)
                 <li class="mb-20">
                     <div class="d-flex">
                         <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
                             <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-4.jpg" alt="">
+                                <img src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
                             </a>
                         </div>
                         <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">لورم
-                                    ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a>
+                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">{{ $article->title }}</a>
                             </h6>
                         </div>
                     </div>
                 </li>
-                <li class="mb-20">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-15.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">سه
-                                    درصد گذشته، حال و آینده شناخت فراوان</a></h6>
-                        </div>
-                    </div>
-                </li>
-                <li class="mb-20">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-16.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">سطرآنچنان
-                                    که لازم است و برای شرایط فعلی تکنولوژی</a></h6>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-15.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">سه
-                                    درصد گذشته، حال و آینده شناخت فراوان</a></h6>
-                        </div>
-                    </div>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>

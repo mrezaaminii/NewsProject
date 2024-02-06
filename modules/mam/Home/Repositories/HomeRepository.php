@@ -22,4 +22,9 @@ class HomeRepository extends BaseRepository implements HomeRepositoryInterface
     {
         return Category::query()->where('status',Category::ACTIVE)->latest()->get();
     }
+
+    public function getVipArticleOrderedByViews()
+    {
+        return Article::query()->where('type',Article::TYPE_VIP)->where('status',Article::STATUS_ACTIVE)->orderByViews()->latest()->limit(5)->get();
+    }
 }

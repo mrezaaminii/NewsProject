@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use mam\User\database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,8 @@ class DatabaseSeeder extends Seeder
         foreach (self::$seeders as $seeder){
             $this->call($seeder);
         }
+
+        $this->call(UserSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
