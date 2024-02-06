@@ -1,10 +1,11 @@
 <?php
 
-namespace Database\Factories;
+namespace mam\User\database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use mam\User\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\mam\User\Models\User>
@@ -16,6 +17,7 @@ class UserFactory extends Factory
      */
     protected static ?string $password;
 
+    protected $model = User::class;
     /**
      * Define the model's default state.
      *

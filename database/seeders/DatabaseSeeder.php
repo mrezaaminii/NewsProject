@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use mam\User\database\Seeders\UserSeeder;
+use mam\User\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,8 +19,9 @@ class DatabaseSeeder extends Seeder
             $this->call($seeder);
         }
 
-        $this->callOnce(UserSeeder::class);
-        // \App\Models\User::factory(10)->create();
+//        $this->callOnce(UserSeeder::class);
+
+         User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
