@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use mam\Comment\Http\Controllers\CommentController;
+use mam\Comment\Http\Controllers\Admin\CommentController;
 
 Route::group(['middleware' => 'auth','prefix' => 'admin'],function (){
     Route::get('comments/all',[CommentController::class,'index'])->name('comments.index');

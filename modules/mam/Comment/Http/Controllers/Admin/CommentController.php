@@ -1,9 +1,8 @@
 <?php
 
-namespace mam\Comment\Http\Controllers;
+namespace mam\Comment\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use mam\Comment\Repositories\CommentRepository;
 
 class CommentController extends Controller
@@ -16,7 +15,7 @@ class CommentController extends Controller
 
     public function index()
     {
-        $comments = $this->repository->getAllComments();
+        $comments = $this->repository->getAllComments()->paginate(15);
         return view('Comment::Admin.index',compact('comments'));
     }
 
