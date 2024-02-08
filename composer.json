@@ -36,7 +36,8 @@
             "mam\\Panel\\": "modules/mam/Panel",
             "mam\\Category\\": "modules/mam/Category",
             "mam\\Role\\": "modules/mam/Role",
-            "mam\\Article\\": "modules/mam/Article"
+            "mam\\Article\\": "modules/mam/Article",
+            "mam\\Comment\\": "modules/mam/Comment"
         }
     },
     "autoload-dev": {
