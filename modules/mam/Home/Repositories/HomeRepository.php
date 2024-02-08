@@ -39,4 +39,9 @@ class HomeRepository extends BaseRepository implements HomeRepositoryInterface
     {
         return Article::query()->where('type',Article::TYPE_NORMAL)->where('status',Article::STATUS_ACTIVE)->orderByViews()->latest()->limit(3)->get();
     }
+
+    public function getNewArticles()
+    {
+        return Article::query()->where('type',Article::TYPE_NORMAL)->where('status',Article::STATUS_ACTIVE)->latest()->limit(8)->get();
+    }
 }

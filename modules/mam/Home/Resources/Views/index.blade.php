@@ -15,7 +15,7 @@
                 <!-- main content -->
                 <div class="col-lg-10 col-md-9 order-1 order-md-2">
                     <div class="row">
-                        @include('Home::portions.news-posts')
+                        @include('Home::portions.news-posts',['home_repo' => $homeRepository])
                         @include('Home::portions.sidebar-left',['active_category' => $homeRepository])
                     </div>
                 </div>
