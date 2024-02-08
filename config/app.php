@@ -168,6 +168,7 @@ return [
         mam\Category\Providers\CategoryServiceProvider::class,
         mam\Role\Providers\RoleServiceProvider::class,
         mam\Article\Providers\ArticleServiceProvider::class,
+        mam\Comment\Providers\CommentServiceProvider::class,
         /*
          * Package Service Providers...
          */
