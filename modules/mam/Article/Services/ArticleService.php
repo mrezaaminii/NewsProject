@@ -26,14 +26,21 @@ class ArticleService
 
     public function checkIfImageSentWhileUpdating(Article $article,ArticleRequest $request)
     {
-        if ($article->imagePath && $article->imageName){
-            Storage::disk('public')->delete($article->imagePath);
-            $article->imagePath = null;
-            $article->imageName = null;
-            return $this->checkIfImageSent($request);
+        if ($request->hasFile('image') && $request->file('image')->isValid()){
+            if ($article->imagePath && $article->imageName){
+                Storage::disk('public')->delete($article->imagePath);
+                $article->imagePath = null;
+                $article->imageName = null;
+                return $this->checkIfImageSent($request);
+            }else{
+                return $this->checkIfImageSent($request);
+            }
         }else{
-            return $this->checkIfImageSent($request);
+            $imageName = $article->imageName;
+            $imagePath = $article->imagePath;
+            return [$imageName,$imagePath];
         }
+
     }
 
     public function makeSlug($title): array|string|null
