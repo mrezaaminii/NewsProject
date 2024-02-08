@@ -10,7 +10,7 @@ class CommentServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/Migrations');
-        $this->loadViewsFrom(__DIR__.'/../Resources/Views','Comment');
+        $this->loadViewsFrom(__DIR__.'/../Resources/Admin/Views','Comment');
         Route::middleware('web')->group(__DIR__.'/../Routes/comment_routes.php');
     }
 
