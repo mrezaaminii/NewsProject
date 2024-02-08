@@ -3,11 +3,9 @@
 namespace mam\Article\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use mam\Article\Http\Requests\ArticleRequest;
 use mam\Article\Models\Article;
 use mam\Article\Repositories\ArticleRepository;
-use mam\Article\Services\ArticleService;
 use mam\Category\Repositories\CategoryRepository;
 
 class ArticleController extends Controller

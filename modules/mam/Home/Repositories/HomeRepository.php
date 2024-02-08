@@ -5,7 +5,6 @@ namespace mam\Home\Repositories;
 use mam\Article\Models\Article;
 use mam\Category\Model\Category;
 use mam\Home\Contract\HomeRepositoryInterface;
-use mam\Home\Repositories\BaseRepository;
 use mam\Role\Models\Permission;
 use mam\User\Models\User;
 
