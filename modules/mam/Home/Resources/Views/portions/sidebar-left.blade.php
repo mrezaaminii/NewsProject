@@ -74,64 +74,27 @@
         </div>
         <div class="post-aside-style-2">
             <ul class="list-post">
+                @foreach($homeRepository->getArticlesOrderedByViews() as $article)
                 <li class="mb-30 wow fadeIn animated">
                     <div class="d-flex">
                         <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
                             <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-2.jpg" alt="">
+                                <img src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
                             </a>
                         </div>
                         <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">لورم
-                                    ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a>
+                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">{{ $article->title }}</a>
                             </h6>
                             <div
                                 class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">
                                                         <span class="post-by">توسط <a
-                                                                href="author.html">رضا کیمیا</a></span>
-                                <span class="post-on">4 دقیقه پیش</span>
+                                                                href="author.html">{{ $article->user?->name }}</a></span>
+                                <span class="post-on">{{ $article->created_at->diffForHumans() }}</span>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="mb-30 wow fadeIn animated">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-3.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">لورم
-                                    ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</a></h6>
-                            <div
-                                class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">
-                                                        <span class="post-by">توسط <a
-                                                                href="author.html">سعید شمس</a></span>
-                                <span class="post-on">3 ساعت پیش</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="mb-30 wow fadeIn animated">
-                    <div class="d-flex">
-                        <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
-                                <img src="assets/imgs/thumbnail-5.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">سه
-                                    درصد گذشته، حال و آینده شناخت فراوان</a></h6>
-                            <div
-                                class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">
-                                                        <span class="post-by">توسط <a
-                                                                href="author.html">الناز روستایی</a></span>
-                                <span class="post-on">4 ساعت پیش</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>

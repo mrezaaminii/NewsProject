@@ -34,4 +34,9 @@ class HomeRepository extends BaseRepository implements HomeRepositoryInterface
     {
         return User::query()->permission(Permission::PERMISSION_AUTHORS)->limit(20)->get();
     }
+
+    public function getArticlesOrderedByViews()
+    {
+        return Article::query()->where('type',Article::TYPE_NORMAL)->where('status',Article::STATUS_ACTIVE)->orderByViews()->latest()->limit(3)->get();
+    }
 }
