@@ -5,6 +5,6 @@ use mam\Comment\Http\Controllers\CommentController;
 
 Route::group(['middleware' => 'auth','prefix' => 'admin'],function (){
     Route::get('comments/all',[CommentController::class,'index'])->name('comments.index');
-    Route::put('comments/update/{id}',[CommentController::class,'update'])->name('comments.update');
+    Route::get('comments/changeStatus/{id}',[CommentController::class,'changeStatus'])->name('comments.change.status');
     Route::delete('comments/delete/{id}',[CommentController::class,'destroy'])->name('comments.destroy');
 });

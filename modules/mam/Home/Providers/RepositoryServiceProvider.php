@@ -5,6 +5,8 @@ namespace mam\Home\Providers;
 use Illuminate\Support\ServiceProvider;
 use mam\Category\Contract\CategoryRepositoryInterface;
 use mam\Category\Repositories\CategoryRepository;
+use mam\Comment\Contract\CommentRepositoryInterface;
+use mam\Comment\Repositories\CommentRepository;
 use mam\Home\Contract\BaseRepositoryInterface;
 use mam\Home\Contract\HomeRepositoryInterface;
 use mam\Home\Repositories\BaseRepository;
@@ -28,5 +30,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CategoryRepositoryInterface::class,CategoryRepository::class);
         $this->app->bind(RoleRepositoryInterface::class,RoleRepository::class);
         $this->app->bind(HomeRepositoryInterface::class,HomeRepository::class);
+        $this->app->bind(CommentRepositoryInterface::class,CommentRepository::class);
     }
 }
