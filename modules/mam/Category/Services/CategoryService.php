@@ -2,12 +2,13 @@
 
 namespace mam\Category\Services;
 
+use mam\Share\Repositories\ShareRepository;
+
 class CategoryService
 {
     public function makeSlug($title): array|string|null
     {
-        $urlSlug = str_replace('_','',$title);
-        return preg_replace('/\s/','-',$urlSlug);
+        return ShareRepository::makeSlug($title);
     }
 
     public function filterCategorySentDataRequest(array $data): array

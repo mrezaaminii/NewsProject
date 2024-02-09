@@ -13,6 +13,8 @@ use mam\Home\Repositories\BaseRepository;
 use mam\Home\Repositories\HomeRepository;
 use mam\Role\Contract\RoleRepositoryInterface;
 use mam\Role\Repositories\RoleRepository;
+use mam\Share\Contract\ShareRepositoryInterface;
+use mam\Share\Repositories\ShareRepository;
 use mam\User\Contract\UserRepositoryInterface;
 use mam\User\Repositories\UserRepository;
 
@@ -31,5 +33,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(RoleRepositoryInterface::class,RoleRepository::class);
         $this->app->bind(HomeRepositoryInterface::class,HomeRepository::class);
         $this->app->bind(CommentRepositoryInterface::class,CommentRepository::class);
+        $this->app->bind(ShareRepositoryInterface::class,ShareRepository::class);
     }
 }

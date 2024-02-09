@@ -7,6 +7,7 @@ use mam\Role\Http\Requests\RoleRequest;
 use mam\Role\Models\Role;
 use mam\Role\Repositories\RoleRepository;
 use mam\Role\Services\PermissionService;
+use mam\Share\Repositories\ShareRepository;
 
 class RoleController extends Controller
 {

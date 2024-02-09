@@ -5,6 +5,7 @@ namespace mam\Article\Services;
 use Illuminate\Support\Facades\Storage;
 use mam\Article\Http\Requests\ArticleRequest;
 use mam\Article\Models\Article;
+use mam\Share\Repositories\ShareRepository;
 
 class ArticleService
 {
@@ -45,8 +46,7 @@ class ArticleService
 
     public function makeSlug($title): array|string|null
     {
-        $title = str_replace('_','',$title);
-        return preg_replace('/\s/','-',$title);
+        return ShareRepository::makeSlug($title);
     }
 
     public function changeArticleStatusService($article)
