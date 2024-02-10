@@ -92,7 +92,7 @@ class ArticleController extends Controller
     public function details($slug)
     {
         $article = $this->repository->findBySlug($slug);
-        $homeRepository = new HomeRepository($article);
+        $homeRepository = new HomeRepository;
         $related_articles = $this->repository->getRelatedArticles($article->category_id,$article->id);
         return view('Article::Home.details',compact('article','related_articles','homeRepository'));
     }

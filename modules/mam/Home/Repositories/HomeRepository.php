@@ -8,12 +8,8 @@ use mam\Home\Contract\HomeRepositoryInterface;
 use mam\Role\Models\Permission;
 use mam\User\Models\User;
 
-class HomeRepository extends BaseRepository implements HomeRepositoryInterface
+class HomeRepository implements HomeRepositoryInterface
 {
-    public function __construct(Article $article)
-    {
-        parent::__construct($article);
-    }
     public function getVipPosts()
     {
         return Article::query()->where('status',Article::STATUS_ACTIVE)->where('type',Article::TYPE_VIP)->latest();

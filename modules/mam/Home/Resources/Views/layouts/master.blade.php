@@ -8,7 +8,7 @@
 </head>
 
 <body>
-@include('Home::partials.preloader')
+{{--@include('Home::partials.preloader')--}}
 <!-- Preloader Start -->
 <div class="main-wrap">
     <!--Offcanvas sidebar-->
