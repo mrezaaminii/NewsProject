@@ -39,6 +39,9 @@ use App\Helper\Helper;
                         </ul>
                     </div>
                     <div class="bt-1 border-color-1 mb-30"></div>
+                    <figure class="single-thumnail mb-30">
+                        <img src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
+                    </figure>
                     <div class="entry-main-content">
                         <h2>توضیحات</h2>
                         <hr class="wp-block-separator is-style-wide">
@@ -170,36 +173,7 @@ use App\Helper\Helper;
                         </div>
                     </div>
                     <!--comment form-->
-                    <div class="comment-form">
-                        <h3 class="mb-30">ارسال نظرات</h3>
-                        <form class="form-contact comment_form" action="#" id="commentForm">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" name="name" id="name" type="text" placeholder="نام">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" name="email" id="email" type="email" placeholder="ایمیل">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control" name="website" id="website" type="text" placeholder="سایت">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="نظرات"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="button button-contactForm">ارسال نظر</button>
-                            </div>
-                        </form>
-                    </div>
+                    @include('Article::Home.details-partials.create-comment')
                 </div>
                 <!--End col-lg-8-->
                 @include('Article::Home.details-partials.sidebar-left',['homeRepository' => $homeRepository])

@@ -17,7 +17,7 @@
             <article class="p-10 background-white border-radius-10 mb-30 wow fadeIn animated">
                 <div class="d-flex">
                     <div class="post-thumb d-flex ml-15 border-radius-15 img-hover-scale">
-                        <a class="color-white" href="single.html">
+                        <a class="color-white" href="{{ $article->getPath() }}">
                             <img class="border-radius-15" src="{{ asset('storage/'.$article->imagePath) }}"
                                  alt="{{ $article->title }}">
                         </a>
@@ -28,7 +28,7 @@
                                     class="post-in text-danger font-x-small">{{ $article->category?->title }}</span></a>
                         </div>
                         <h5 class="post-title mb-15 text-limit-2-row">
-                            <a href="single.html">{{ $article->title }}</a></h5>
+                            <a href="{{ $article->getPath() }}">{{ $article->title }}</a></h5>
                         <div
                             class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">
                                                     <span class="post-by">توسط <a

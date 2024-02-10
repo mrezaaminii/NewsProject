@@ -19,12 +19,12 @@
                 <li class="mb-20">
                     <div class="d-flex">
                         <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
+                            <a class="color-white" href="{{ $article->getPath() }}">
                                 <img src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
                             </a>
                         </div>
                         <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">{{ $article->title }}</a>
+                            <h6 class="post-title mb-10 text-limit-2-row"><a href="{{ $article->getPath() }}">{{ $article->title }}</a>
                             </h6>
                         </div>
                     </div>
@@ -78,12 +78,12 @@
                 <li class="mb-30 wow fadeIn animated">
                     <div class="d-flex">
                         <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
-                            <a class="color-white" href="single.html">
+                            <a class="color-white" href="{{ $article->getPath() }}">
                                 <img src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
                             </a>
                         </div>
                         <div class="post-content media-body">
-                            <h6 class="post-title mb-10 text-limit-2-row"><a href="single.html">{{ $article->title }}</a>
+                            <h6 class="post-title mb-10 text-limit-2-row"><a href="{{ $article->getPath() }}">{{ $article->title }}</a>
                             </h6>
                             <div
                                 class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase">

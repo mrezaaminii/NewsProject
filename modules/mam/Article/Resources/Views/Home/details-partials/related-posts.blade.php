@@ -14,7 +14,7 @@
                         <a class="entry-meta meta-2" href="category.html"><span class="post-in text-primary font-x-small">{{ $article->category->title }}</span></a>
                     </div>
                     <h5 class="post-title mb-15">
-                        <a href="{{ $article->getPath() }}">{{ $article->title }} </a></h5>
+                        <a href="{{ $article->getPath() }}">{{ \Illuminate\Support\Str::limit($article->title,25) }} </a></h5>
                     <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
                         <span class="post-by">توسط <a href="author.html">{{ $article->user?->name }}</a></span>
                         <span class="post-on">{{ $article->created_at->diffForHumans() }}</span>
