@@ -7,3 +7,7 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'],function (){
     Route::resource('articles',ArticleController::class);
     Route::get('/articles/change-status/{id}',[ArticleController::class,'changeStatus'])->name('articles.change.status');
 });
+
+Route::group(['prefix' => 'home'],function (){
+    Route::get('/articles/details/{slug}',[ArticleController::class,'details'])->name('articles.home.details');
+});

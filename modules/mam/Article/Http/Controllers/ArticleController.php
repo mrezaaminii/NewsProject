@@ -87,4 +87,9 @@ class ArticleController extends Controller
         $this->authorize('index',Article::class);
         return $this->repository->changeArticleStatus($id);
     }
+
+    public function details($article)
+    {
+        return view('Article::Home.details',compact());
+    }
 }
