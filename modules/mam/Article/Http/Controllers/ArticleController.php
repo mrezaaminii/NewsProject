@@ -88,8 +88,10 @@ class ArticleController extends Controller
         return $this->repository->changeArticleStatus($id);
     }
 
-    public function details($article)
+    public function details($slug)
     {
-        return view('Article::Home.details',compact());
+        $article = $this->repository->findBySlug($slug);
+
+        return view('Article::Home.details',compact('article'));
     }
 }

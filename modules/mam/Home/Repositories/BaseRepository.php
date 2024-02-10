@@ -26,6 +26,11 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->query()->findOrFail($id);
     }
 
+    public function findBySlug(string $slug)
+    {
+        return $this->model->query()->where('slug',$slug)->first();
+    }
+
     public function updateRecord(int $id, array $data): Model|\Illuminate\Database\Eloquent\Collection
     {
         $record = $this->findById($id);
