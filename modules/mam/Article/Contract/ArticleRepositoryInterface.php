@@ -12,4 +12,6 @@ interface ArticleRepositoryInterface
     public function updateArticle(int $id,array $data);
     public function deleteArticles(int $id);
     public function changeArticleStatus(int $id);
+    public function query();
+    public function getRelatedArticles(int $categoryId,int $id);
 }

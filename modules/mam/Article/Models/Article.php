@@ -57,4 +57,9 @@ class Article extends Model implements Viewable
     {
         return $this->morphMany(Comment::class,'commentable');
     }
+
+    public function getPath(): string
+    {
+        return route('articles.home.details',$this->slug);
+    }
 }

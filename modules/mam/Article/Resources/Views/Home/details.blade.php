@@ -89,77 +89,7 @@ use App\Helper\Helper;
                         </div>
                     </div>
                     <!--related posts-->
-                    <div class="related-posts">
-                        <h3 class="mb-30">پست های مرتبط</h3>
-                        <div class="row">
-                            <article class="col-lg-4">
-                                <div class="background-white border-radius-10 p-10 mb-30">
-                                    <div class="post-thumb d-flex mb-15 border-radius-15 img-hover-scale">
-                                        <a href="single.html">
-                                            <img class="border-radius-15" src="assets/imgs/news-2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="pl-10 pr-10">
-                                        <div class="entry-meta mb-15 mt-10">
-                                            <a class="entry-meta meta-2" href="category.html"><span class="post-in text-primary font-x-small">سیاسی</span></a>
-                                        </div>
-                                        <h5 class="post-title mb-15">
-                                                <span class="post-format-icon">
-                                                    <ion-icon name="image-outline" role="img" class="md hydrated" aria-label="image outline"></ion-icon>
-                                                </span>
-                                            <a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
-                                        <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                                            <span class="post-by">توسط <a href="author.html">الناز روستایی</a></span>
-                                            <span class="post-on">8 دقیقه پیش</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="col-lg-4">
-                                <div class="background-white border-radius-10 p-10 mb-30">
-                                    <div class="post-thumb d-flex mb-15 border-radius-15 img-hover-scale">
-                                        <a href="single.html">
-                                            <img class="border-radius-15" src="assets/imgs/news-5.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="pl-10 pr-10">
-                                        <div class="entry-meta mb-15 mt-10">
-                                            <a class="entry-meta meta-2" href="category.html"><span class="post-in text-success font-x-small">فناوری</span></a>
-                                        </div>
-                                        <h5 class="post-title mb-15">
-                                                <span class="post-format-icon">
-                                                    <ion-icon name="headset-outline" role="img" class="md hydrated" aria-label="headset outline"></ion-icon>
-                                                </span>
-                                            <a href="single.html">سه درصد گذشته، حال و آینده شناخت فراوان جامعه</a></h5>
-                                        <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                                            <span class="post-by">توسط <a href="author.html">مهتاب رضایی</a></span>
-                                            <span class="post-on">24 دقیقه پیش</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="col-lg-4">
-                                <div class="background-white border-radius-10 p-10">
-                                    <div class="post-thumb d-flex mb-15 border-radius-15 img-hover-scale">
-                                        <a href="single.html">
-                                            <img class="border-radius-15" src="assets/imgs/news-7.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="pl-10 pr-10">
-                                        <div class="entry-meta mb-15 mt-10">
-                                            <a class="entry-meta meta-2" href="category.html"><span class="post-in text-danger font-x-small">جهانی</span></a>
-                                        </div>
-                                        <h5 class="post-title mb-15">
-                                            <a href="single.html">طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد</a></h5>
-                                        <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                                            <span class="post-by">توسط <a href="author.html">سعید شمس</a></span>
-                                            <span class="post-on">24 دقیقه پیش</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
+                        @include('Article::Home.details-partials.related-posts',['related_articles' => $related_articles])
                     <!--Comments-->
                     <div class="comments-area">
                         <h3 class="mb-30">3 نظرات</h3>

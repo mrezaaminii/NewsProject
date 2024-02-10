@@ -79,4 +79,14 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
             'body' => $request->body,
         ];
     }
+
+    public function query(): \Illuminate\Database\Eloquent\Builder
+    {
+        return Article::query();
+    }
+
+    public function getRelatedArticles(int $categoryId,int $id)
+    {
+        return $this->query()->where('category_id',$categoryId)->where('id','!=',$id)->limit(3)->get();
+    }
 }
