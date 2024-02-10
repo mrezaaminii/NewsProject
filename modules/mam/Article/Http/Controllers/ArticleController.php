@@ -7,6 +7,7 @@ use mam\Article\Http\Requests\ArticleRequest;
 use mam\Article\Models\Article;
 use mam\Article\Repositories\ArticleRepository;
 use mam\Category\Repositories\CategoryRepository;
+use mam\Home\Repositories\HomeRepository;
 
 class ArticleController extends Controller
 {
@@ -91,7 +92,8 @@ class ArticleController extends Controller
     public function details($slug)
     {
         $article = $this->repository->findBySlug($slug);
+        $homeRepository = new HomeRepository($article);
         $related_articles = $this->repository->getRelatedArticles($article->category_id,$article->id);
-        return view('Article::Home.details',compact('article','related_articles'));
+        return view('Article::Home.details',compact('article','related_articles','homeRepository'));
     }
 }
