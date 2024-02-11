@@ -29,6 +29,7 @@ class ArticleController extends Controller
     public function home()
     {
         $articles =  $this->repository->home()->paginate(6);
-        return view('Article::Home.home',compact('articles'));
+        $mostViewedArticles = $this->repository->getMostViewedArticles()->limit(5);
+        return view('Article::Home.home',compact('articles','mostViewedArticles'));
     }
 }

@@ -95,4 +95,9 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
         return Article::query()->where('status',Article::STATUS_ACTIVE)->latest();
     }
 
+    public function getMostViewedArticles()
+    {
+        return Article::query()->where('status',Article::STATUS_ACTIVE)->orderByViews()->latest();
+    }
+
 }
