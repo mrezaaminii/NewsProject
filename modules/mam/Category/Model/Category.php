@@ -45,5 +45,8 @@ class Category extends Model
 
     public static array $statuses = [self::ACTIVE,self::INACTIVE];
 
-
+    public function getPath()
+    {
+        return route('category.details',$this->slug);
+    }
 }
