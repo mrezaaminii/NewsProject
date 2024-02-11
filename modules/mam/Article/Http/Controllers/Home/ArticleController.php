@@ -7,6 +7,7 @@ use mam\Article\Http\Requests\ArticleRequest;
 use mam\Article\Models\Article;
 use mam\Article\Repositories\ArticleRepository;
 use mam\Category\Repositories\CategoryRepository;
+use mam\Comment\Repositories\CommentRepository;
 use mam\Home\Repositories\HomeRepository;
 
 class ArticleController extends Controller
@@ -26,10 +27,11 @@ class ArticleController extends Controller
         return view('Article::Home.details',compact('article','related_articles','homeRepository'));
     }
 
-    public function home()
+    public function home(CommentRepository $commentRepository)
     {
         $articles =  $this->repository->home()->paginate(6);
+        $latestComments = $commentRepository->getAllComments()->latest();
         $mostViewedArticles = $this->repository->getMostViewedArticles()->limit(5);
-        return view('Article::Home.home',compact('articles','mostViewedArticles'));
+        return view('Article::Home.home',compact('articles','mostViewedArticles','latestComments'));
     }
 }
