@@ -1,7 +1,3 @@
-@php
-    $homeRepo = new \mam\Home\Repositories\HomeRepository;
-    $categories = $homeRepo->getActiveCategories();
-@endphp
 <footer>
     <div class="footer-area pt-50 bg-white">
         <div class="container">

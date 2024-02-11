@@ -16,7 +16,11 @@ class HomeServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        //
+        view()->composer(['Home::partials.footer'],function ($view){
+            $homeRepo = new \mam\Home\Repositories\HomeRepository;
+            $categories = $homeRepo->getActiveCategories();
+            $view->with(['categories' => $categories]);
+        });
     }
 
 }
