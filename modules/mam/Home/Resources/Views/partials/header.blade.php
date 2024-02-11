@@ -6,18 +6,18 @@
             <div class="row">
                 <div class="col-lg-2 col-md-3">
                     <div class="header-logo d-none d-lg-block">
-                        <a href="index.html">
-                            <img class="logo-img d-inline" src="assets/imgs/logo.svg" alt="">
+                        <a href="{{ route('home.index') }}">
+                            <img class="logo-img d-inline" src="{{ asset('assets/imgs/logo.svg') }}" alt="logo">
                         </a>
                     </div>
                     <div class="logo-tablet d-md-inline d-lg-none d-none">
-                        <a href="index.html">
-                            <img class="logo-img d-inline" src="assets/imgs/logo.svg" alt="">
+                        <a href="{{ route('home.index') }}">
+                            <img class="logo-img d-inline" src="{{ asset('assets/imgs/logo.svg') }}" alt="image logo">
                         </a>
                     </div>
                     <div class="logo-mobile d-block d-md-none">
-                        <a href="index.html">
-                            <img class="logo-img d-inline" src="assets/imgs/favicon.svg" alt="">
+                        <a href="{{ route('home.index') }}">
+                            <img class="logo-img d-inline" src="{{ asset('assets/imgs/favicon.svg') }}" alt="favorite icon">
                         </a>
                     </div>
                 </div>
@@ -44,25 +44,14 @@
                         </ul>
                         <nav>
                             <ul class="main-menu d-none d-lg-inline">
-                                <li class="menu-item-has-children">
-                                    <a href="index.html">
-                                                <span class="ml-15">
-                                                    <ion-icon name="home-outline"></ion-icon>
-                                                </span>
+                                <li>
+                                    <a href="{{ route('home.index') }}">
                                         خانه
                                     </a>
-                                    <ul class="sub-menu text-muted font-small">
-                                        <li><a href="index.html">صفحه اصلی 1</a></li>
-                                        <li><a href="home-2.html">صفحه اصلی 2</a></li>
-                                        <li><a href="home-3.html">صفحه اصلی 3</a></li>
-                                    </ul>
                                 </li>
                                 <li class="mega-menu-item">
                                     <a href="#">
-                                                <span class="ml-15">
-                                                    <ion-icon name="desktop-outline"></ion-icon>
-                                                </span>
-                                        صفحات
+                                        دسته بندی ها
                                     </a>
                                     <div class="sub-mega-menu sub-menu-list row text-muted font-small">
                                         <ul class="col-md-2">
@@ -72,28 +61,7 @@
                                             <li><a href="category-big.html">دسته بندی بزرگ</a></li>
                                             <li><a href="category-metro.html">دسته بندی مترو</a></li>
                                         </ul>
-                                        <ul class="col-md-2">
-                                            <li><strong>پست ها</strong></li>
-                                            <li><a href="single.html">پست استاندارد</a></li>
-                                            <li><a href="single-video.html">پست ویدئو</a></li>
-                                            <li><a href="single-gallery.html">پست گالری</a></li>
-                                            <li><a href="single-audio.html">پست صوتی</a></li>
-                                            <li><a href="single-image.html">پست عکس</a></li>
-                                            <li><a href="single-full.html">پست تمام صفحه</a></li>
-                                        </ul>
-                                        <ul class="col-md-2">
-                                            <li><strong>صفحات</strong></li>
-                                            <li><a href="typography.html">تایپوگرافی</a></li>
-                                            <li><a href="about.html">درباره ما</a></li>
-                                            <li><a href="contact.html">تماس با ما</a></li>
-                                            <li><a href="search.html">جستجو</a></li>
-                                            <li><a href="author.html">نویسنده</a></li>
-                                            <li><a href="404.html">صفحه 404</a></li>
-                                        </ul>
-                                        <div class="col-md-6 text-left">
-                                            <a href="#"><img class="border-radius-10" src="assets/imgs/ads-2.jpg"
-                                                             alt=""></a>
-                                        </div>
+
                                     </div>
                                 </li>
                                 <li class="mega-menu-item">
