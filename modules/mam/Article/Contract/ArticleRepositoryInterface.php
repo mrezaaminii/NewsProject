@@ -14,4 +14,5 @@ interface ArticleRepositoryInterface
     public function changeArticleStatus(int $id);
     public function query();
     public function getRelatedArticles(int $categoryId,int $id);
+    public function home();
 }

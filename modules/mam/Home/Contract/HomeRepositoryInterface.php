@@ -8,4 +8,6 @@ interface HomeRepositoryInterface
     public function getActiveCategories();
     public function getVipArticleOrderedByViews();
     public function getUserAuthor();
+    public function getArticlesOrderedByViews();
+    public function getNewArticles();
 }

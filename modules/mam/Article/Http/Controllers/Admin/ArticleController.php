@@ -1,6 +1,6 @@
 <?php
 
-namespace mam\Article\Http\Controllers;
+namespace mam\Article\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use mam\Article\Http\Requests\ArticleRequest;
@@ -92,6 +92,7 @@ class ArticleController extends Controller
     public function details($slug)
     {
         $article = $this->repository->findBySlug($slug);
+        if (is_null($article)) abort(404);
         $homeRepository = new HomeRepository;
         $related_articles = $this->repository->getRelatedArticles($article->category_id,$article->id);
         return view('Article::Home.details',compact('article','related_articles','homeRepository'));

@@ -89,4 +89,10 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
     {
         return $this->query()->where('category_id',$categoryId)->where('id','!=',$id)->limit(3)->get();
     }
+
+    public function home()
+    {
+        return Article::query()->where('status',Article::STATUS_ACTIVE)->latest()->get();
+    }
+
 }
