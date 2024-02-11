@@ -28,6 +28,7 @@ class ArticleController extends Controller
 
     public function home()
     {
-        return $this->repository->home();
+        $articles =  $this->repository->home()->paginate(6);
+        return view('Article::Home.home',compact('articles'));
     }
 }

@@ -60,4 +60,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Comment::class);
     }
 
+    public function getPath()
+    {
+//        return route('user.details',$this->id);
+    }
+
 }

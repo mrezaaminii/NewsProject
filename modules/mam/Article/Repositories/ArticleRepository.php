@@ -92,7 +92,7 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
 
     public function home()
     {
-        return Article::query()->where('status',Article::STATUS_ACTIVE)->latest()->get();
+        return Article::query()->where('status',Article::STATUS_ACTIVE)->latest();
     }
 
 }
