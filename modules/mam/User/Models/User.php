@@ -65,4 +65,8 @@ class User extends Authenticatable implements MustVerifyEmail
 //        return route('user.details',$this->id);
     }
 
+    public function getImage()
+    {
+        return asset('assets/imgs/authors/author-14.png');
+    }
 }

@@ -139,13 +139,27 @@
                                     @foreach($latestComments as $comment)
                                     <div class="last-comment mb-20 d-flex wow fadeIn animated">
                                             <span class="item-count vertical-align">
-                                                <a class="red-tooltip author-avatar" href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="مرجان - 985 پست"><img src="assets/imgs/authors/author-14.png" alt=""></a>
+                                                <a class="red-tooltip author-avatar" href="#" data-toggle="tooltip"
+                                                   data-placement="top" title=""
+                                                   data-original-title="{{ $comment->user?->name }}
+                                                   - {{ $comment->user->articles->count() }} مقاله">
+                                                    <img src="{{ $comment->user?->getImage() }}" alt="">
+                                                </a>
                                             </span>
                                         <div class="alith_post_title_small">
-                                            <p class="font-medium mb-10"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان.</a></p>
-                                            <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                                                <span class="post-by">توسط <a href="author.html">مرجان همتی</a></span>
-                                                <span class="post-on">4 دقیقه پیش</span>
+                                            <p class="font-medium mb-10">
+                                                <a href="{{ $comment->commentable?->getPath() }}">
+                                                    {{ \Illuminate\Support\Str::limit($comment->body) }}
+                                                </a>
+                                            </p>
+                                            <div class="entry-meta meta-1 font-x-small
+                                             color-grey float-right text-uppercase mb-10">
+                                                <span class="post-by">توسط
+                                                    <a href="{{ $comment->user?->getPath() }}">
+                                                        {{ $comment->user?->name }}
+                                                    </a>
+                                                </span>
+                                                <span class="post-on">{{ $comment->created_at->diffForHumans() }}</span>
                                             </div>
                                         </div>
                                     </div>
