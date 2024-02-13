@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use mam\Article\traits\ArticleRelationsTrait;
 use mam\Category\Model\Category;
 use mam\Comment\Models\Comment;
 use mam\User\Models\User;
@@ -16,7 +17,7 @@ use Overtrue\LaravelLike\Traits\Likeable;
 
 class Article extends Model implements Viewable
 {
-    use HasFactory, SoftDeletes,InteractsWithViews,Likeable;
+    use HasFactory, SoftDeletes,InteractsWithViews,Likeable,ArticleRelationsTrait;
 
     protected $fillable = ['title','user_id','category_id','time_to_read','slug','keywords','description','imageName','imagePath','score','status','type','body'];
 
@@ -41,21 +42,6 @@ class Article extends Model implements Viewable
     public function setTimeToReadAttribute($value)
     {
         $this->attributes['time_to_read'] = Helper::convertPersianToEnglish($value);
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class,'user_id');
-    }
-
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class,'category_id');
-    }
-
-    public function comments(): \Illuminate\Database\Eloquent\Relations\MorphMany
-    {
-        return $this->morphMany(Comment::class,'commentable');
     }
 
     public function getPath(): string
