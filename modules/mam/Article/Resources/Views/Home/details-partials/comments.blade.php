@@ -1,21 +1,22 @@
 <div class="comments-area">
     <h3 class="mb-30">{{ $article->comments->count() }} نظرات</h3>
+    @foreach($article->activeComments() as $comment)
     <div class="comment-list">
         <div class="single-comment justify-content-between d-flex">
             <div class="user justify-content-between d-flex">
                 <div class="thumb">
-                    <img src="assets/imgs/authors/author-2.png" alt="">
+                    <img src="{{ $comment->user?->getImage() }}" alt="user image">
                 </div>
                 <div class="desc">
                     <p class="comment">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی.
+                        {{ $comment->body }}
                     </p>
                     <div class="d-flex justify-content-between">
                         <div class="d-flex align-items-center">
                             <h5>
-                                <a href="#">الناز روستایی</a>
+                                <a href="{{ $comment->user->getPath() }}">{{ $comment->user?->name }}</a>
                             </h5>
-                            <p class="date">4 فروردین 1400 ساعت 3:12 بعد از ظهر </p>
+                            <p class="date">{{ jdate($comment->created_at)->format('%A, %d %B %y') }}</p>
                         </div>
                         <div class="reply-btn">
                             <a href="#" class="btn-reply text-uppercase">پاسخ</a>
@@ -25,54 +26,32 @@
             </div>
         </div>
     </div>
-    <div class="comment-list">
-        <div class="single-comment justify-content-between d-flex">
-            <div class="user justify-content-between d-flex">
-                <div class="thumb">
-                    <img src="assets/imgs/authors/author-3.png" alt="">
-                </div>
-                <div class="desc">
-                    <p class="comment">
-                        سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                    </p>
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <h5>
-                                <a href="#">سعید شمس</a>
-                            </h5>
-                            <p class="date">4 فروردین 1400 ساعت 3:12 بعد از ظهر </p>
+       @foreach($comment->children as $answeredComment)
+            <div class="comment-list">
+                <div class="single-comment justify-content-between d-flex">
+                    <div class="user justify-content-between d-flex">
+                        <div class="thumb">
+                            <img src="{{ $answeredComment->user?->getImage() }}" alt="user image">
                         </div>
-                        <div class="reply-btn">
-                            <a href="#" class="btn-reply text-uppercase">پاسخ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="comment-list">
-        <div class="single-comment justify-content-between d-flex">
-            <div class="user justify-content-between d-flex">
-                <div class="thumb">
-                    <img src="assets/imgs/authors/author-16.png" alt="">
-                </div>
-                <div class="desc">
-                    <p class="comment">
-                        طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل.
-                    </p>
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <h5>
-                                <a href="#">مهتاب رضایی</a>
-                            </h5>
-                            <p class="date">4 فروردین 1400 ساعت 3:12 بعد از ظهر </p>
-                        </div>
-                        <div class="reply-btn">
-                            <a href="#" class="btn-reply text-uppercase">پاسخ</a>
+                        <div class="desc">
+                            <p class="comment">
+                                {{ $answeredComment->body }}
+                            </p>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <h5>
+                                        <a href="{{ $answeredComment->user->getPath() }}">{{ $answeredComment->user?->name }}</a>
+                                    </h5>
+                                    <p class="date">{{ jdate($answeredComment->created_at)->format('%A, %d %B %y') }}</p>
+                                </div>
+                                <div class="reply-btn">
+                                    <a href="#" class="btn-reply text-uppercase">پاسخ</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+       @endforeach
+    @endforeach
 </div>
