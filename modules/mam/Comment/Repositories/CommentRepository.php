@@ -32,6 +32,8 @@ class CommentRepository extends BaseRepository implements CommentRepositoryInter
             default => false
         };
 
+        $comment->save();
+
         return response()->json(['status' => $status]);
     }
 }

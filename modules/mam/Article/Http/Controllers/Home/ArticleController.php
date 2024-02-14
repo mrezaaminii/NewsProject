@@ -3,10 +3,7 @@
 namespace mam\Article\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
-use mam\Article\Http\Requests\ArticleRequest;
-use mam\Article\Models\Article;
 use mam\Article\Repositories\ArticleRepository;
-use mam\Category\Repositories\CategoryRepository;
 use mam\Comment\Repositories\CommentRepository;
 use mam\Home\Repositories\HomeRepository;
 

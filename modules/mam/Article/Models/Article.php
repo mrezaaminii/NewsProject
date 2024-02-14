@@ -7,12 +7,8 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use mam\Article\traits\ArticleRelationsTrait;
-use mam\Category\Model\Category;
-use mam\Comment\Models\Comment;
-use mam\User\Models\User;
 use Overtrue\LaravelLike\Traits\Likeable;
 
 class Article extends Model implements Viewable

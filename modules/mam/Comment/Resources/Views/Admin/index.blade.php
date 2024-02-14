@@ -75,6 +75,7 @@
     <script src="{{ asset('assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script>
         function changeStatus(element,category){
+            console.log(category)
         const statusBadge = document.getElementById('statusBadge' + category.id);
             $.ajax({
                 url: element.getAttribute('data-url'),
