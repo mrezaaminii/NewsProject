@@ -23,6 +23,7 @@
 <div class="dark-mark"></div>
 <!-- Vendor JS-->
 @include('Home::partials.js')
+@include('sweetalert::alert')
 </body>
 
 </html>

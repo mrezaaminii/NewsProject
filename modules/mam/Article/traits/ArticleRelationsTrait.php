@@ -15,7 +15,7 @@ trait ArticleRelationsTrait
     {
         return $this->morphMany(Comment::class,'commentable')
             ->where('status',Comment::STATUS_ACTIVE)
-            ->whereNull('comment_id')->with('children');
+            ->whereNull('comment_id')->with('children')->latest()->get();
     }
 
     public function user(): BelongsTo

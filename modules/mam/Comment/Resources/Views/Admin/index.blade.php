@@ -37,7 +37,7 @@
                                             @lang($comment->status)
                                         </span>
                                     </td>
-                                    <td>{{ \Illuminate\Support\Str::limit($comment->parent->body,10) }}</td>
+                                    <td>{{ \Illuminate\Support\Str::limit($comment->parent?->body,10) }}</td>
                                     <td>{{ $comment->children->count() }}</td>
                                     <td>{{ $comment->user?->name }}</td>
                                     <td>{{ Helper::convertEnglishToPersian(jdate($comment->created_at)->format('Y-m-d')) }}</td>

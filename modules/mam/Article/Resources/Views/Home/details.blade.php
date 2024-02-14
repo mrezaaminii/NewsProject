@@ -96,7 +96,7 @@ use App\Helper\Helper;
                     <!--Comments-->
                     @include('Article::Home.details-partials.comments',['article' => $article])
                     <!--comment form-->
-                    @include('Article::Home.details-partials.create-comment')
+                    @include('Article::Home.details-partials.create-comment',['article' => $article])
                 </div>
                 <!--End col-lg-8-->
                 @include('Article::Home.details-partials.sidebar-left',['homeRepository' => $homeRepository])

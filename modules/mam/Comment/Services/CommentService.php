@@ -4,6 +4,7 @@ namespace mam\Comment\Services;
 
 use JetBrains\PhpStorm\ArrayShape;
 use mam\Role\Models\Permission;
+use mam\Share\Repositories\ShareRepository;
 
 class CommentService
 {
@@ -33,5 +34,13 @@ class CommentService
             return 'active';
         }
         return 'new';
+    }
+
+    public function alertStoringMessage(string $title)
+    {
+        if (auth()->user()->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN)) {
+            return ShareRepository::alertMessage($title, 'کامنت با موفقیت ذخیره شد');
+        }
+        return ShareRepository::alertMessage($title, 'کامنت شما پس از بررسی ذخیره خواهد شد');
     }
 }

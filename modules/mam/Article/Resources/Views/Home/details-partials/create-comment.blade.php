@@ -8,9 +8,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <textarea class="form-control w-100 @error('body') is-invalid @enderror" name="body"
-                    id="body" cols="30" rows="9" placeholder="نظرات">
-                        {{ old('body') }}
-                    </textarea>
+                    id="body" cols="30" rows="9" placeholder="نظرات">{{ old('body') }}</textarea>
                 </div>
                 @error('body')
                 <br>

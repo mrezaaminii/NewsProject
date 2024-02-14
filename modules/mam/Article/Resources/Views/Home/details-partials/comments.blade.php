@@ -1,5 +1,5 @@
 <div class="comments-area">
-    <h3 class="mb-30">{{ $article->comments->count() }} نظرات</h3>
+    <h3 class="mb-30">{{ $article->activeComments()->count() }} نظرات</h3>
     @foreach($article->activeComments() as $comment)
     <div class="comment-list">
         <div class="single-comment justify-content-between d-flex">
