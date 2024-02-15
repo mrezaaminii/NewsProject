@@ -19,7 +19,7 @@
                             </div>
                             <div class="pl-10 pr-10">
                                 <h5 class="post-title mb-15">
-                                    <a href="{{ $author->getPath() }}">
+                                    <a href="{{ $author->getAuthorPath() }}">
                                         {{ \Illuminate\Support\Str::limit($author->name,70) }}
                                     </a>
                                 </h5>

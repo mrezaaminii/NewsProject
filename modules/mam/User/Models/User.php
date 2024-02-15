@@ -67,7 +67,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getAuthorPath()
     {
-        return route('user.details',$this->id);
+        return route('home.author.details',$this->id);
     }
 
     public function getImage()

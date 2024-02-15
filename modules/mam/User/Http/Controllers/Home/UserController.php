@@ -21,6 +21,8 @@ class UserController extends Controller
 
     public function show(int $id)
     {
-
+        $author = $this->repository->findById($id);
+        $articles = $author->articles()->paginate(6);
+        return view('User::Home.author',compact('author','articles'));
     }
 }
