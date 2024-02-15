@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $authors = $this->repository->getAllAuthors();
+        $authors = $this->repository->getAllAuthors()->paginate(12);
         return view('User::Home.authors',compact('authors'));
     }
 }
