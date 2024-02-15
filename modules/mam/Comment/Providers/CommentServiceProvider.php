@@ -4,6 +4,7 @@ namespace mam\Comment\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use mam\Comment\Services\CommentService;
 
 class CommentServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,12 @@ class CommentServiceProvider extends ServiceProvider
                     'icon' => 'comment'
                 ]);
             });
+        });
+
+        view()->composer(['Article::Home.details-partials.sidebar-left'],function ($view){
+            $commentService = new CommentService;
+            $comments = $commentService->getLatestComments();
+            $view->with(['comments' => $comments]);
         });
     }
 }

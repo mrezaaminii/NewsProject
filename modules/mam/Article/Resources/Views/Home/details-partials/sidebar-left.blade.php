@@ -104,40 +104,26 @@
             <h5 class="widget-title">آخرین <span>نظرات</span></h5>
         </div>
         <div class="post-block-list post-module-6">
+            @foreach($comments as $comment)
             <div class="last-comment mb-20 d-flex wow fadeIn animated">
                                             <span class="item-count vertical-align">
                                                 <a class="red-tooltip author-avatar" href="#" data-toggle="tooltip"
                                                    data-placement="top" title=""
-                                                   data-original-title="مرجان - 985 پست"><img
-                                                        src="assets/imgs/authors/author-14.png" alt=""></a>
+                                                   data-original-title="{{ $comment->user?->name }} - {{ $comment->user->articles->count() }} مقاله"><img
+                                                        src="{{ $comment->user->getImage() }}" alt=""></a>
                                             </span>
                 <div class="alith_post_title_small">
-                    <p class="font-medium mb-10"><a href="single.html">لورم ایپسوم متن ساختگی با
-                            تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان.</a></p>
+                    <p class="font-medium mb-10">
+                        <a href="{{ $comment->commentable->getPath() }}">{{ $comment->commentable->title }}</a>
+                    </p>
                     <div
                         class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                        <span class="post-by">توسط <a href="author.html">مرجان همتی</a></span>
-                        <span class="post-on">4 دقیقه پیش</span>
+                        <span class="post-by">توسط <a href="author.html">{{ $comment->user?->name }}</a></span>
+                        <span class="post-on">{{ $comment->created_at->diffForHumans() }}</span>
                     </div>
                 </div>
             </div>
-            <div class="last-comment d-flex wow fadeIn animated">
-                                            <span class="item-count vertical-align">
-                                                <a class="red-tooltip author-avatar" href="#" data-toggle="tooltip"
-                                                   data-placement="top" title=""
-                                                   data-original-title="بهمن - 1245 پست"><img
-                                                        src="assets/imgs/authors/author-9.png" alt=""></a>
-                                            </span>
-                <div class="alith_post_title_small">
-                    <p class="font-medium mb-10"><a href="single.html">لورم ایپسوم متن ساختگی با
-                            تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان</a></p>
-                    <div
-                        class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                        <span class="post-by">توسط <a href="author.html">بهمن راستی</a></span>
-                        <span class="post-on">4 دقیقه پیش</span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

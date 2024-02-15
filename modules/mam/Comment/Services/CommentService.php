@@ -3,6 +3,7 @@
 namespace mam\Comment\Services;
 
 use JetBrains\PhpStorm\ArrayShape;
+use mam\Comment\Models\Comment;
 use mam\Role\Models\Permission;
 use mam\Share\Repositories\ShareRepository;
 
@@ -42,5 +43,10 @@ class CommentService
             return ShareRepository::alertMessage($title, 'کامنت با موفقیت ذخیره شد');
         }
         return ShareRepository::alertMessage($title, 'کامنت شما پس از بررسی ذخیره خواهد شد');
+    }
+
+    public function getLatestComments()
+    {
+        return Comment::query()->latest()->limit(3)->get();
     }
 }
