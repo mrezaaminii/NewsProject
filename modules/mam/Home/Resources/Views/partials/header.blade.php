@@ -24,9 +24,9 @@
                 <div class="col-lg-10 col-md-9 main-header-navigation">
                     <div class="main-nav text-right float-lg-right float-md-left">
                         <ul class="mobi-menu d-none menu-3-columns" id="navigation">
-                            <li class="cat-item cat-item-2"><a href="#">صفحه اصلی</a></li>
-                            <li class="cat-item cat-item-3"><a href="#">مقالات</a></li>
-                            <li class="cat-item cat-item-4"><a href="#">نویسندگان</a></li>
+                            <li class="cat-item cat-item-2"><a href="{{ route('home.index') }}">صفحه اصلی</a></li>
+                            <li class="cat-item cat-item-3"><a href="{{ route('articles.home') }}">مقالات</a></li>
+                            <li class="cat-item cat-item-4"><a href="{{ route('home.authors') }}">نویسندگان</a></li>
                             @auth
                                 <li class="cat-item cat-item-5"><a href="#">{{ auth()->user()->name }}</a></li>
                                 <li class="cat-item cat-item-6"><a href="{{ route('auth.logout') }}">خروج</a></li>
@@ -50,7 +50,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('home.index') }}">
+                                    <a href="{{ route('home.authors') }}">
                                         نویسندگان
                                     </a>
                                 </li>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use mam\User\Http\Controllers\Admin\UserController;
+use mam\User\Http\Controllers\Home\UserController as HomeUserController;
 
 Route::group(['prefix' => 'admin','middleware' => 'auth'],function (){
     Route::get('/users/{userId}/role',[UserController::class,'addRoleView'])->name('users.role.view');
@@ -11,6 +12,6 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function (){
 });
 
 Route::group(['prefix' => 'home'],function (){
-    Route::get('/authors/',[UserController::class,'addRoleView'])->name('home.authors');
+    Route::get('/authors/',[HomeUserController::class,'index'])->name('home.authors');
     Route::get('/users/{userId}/role',[UserController::class,'addRoleView'])->name('users.role.view');
 });
