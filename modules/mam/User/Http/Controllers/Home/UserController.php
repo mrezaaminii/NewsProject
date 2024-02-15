@@ -18,4 +18,9 @@ class UserController extends Controller
         $authors = $this->repository->getAllAuthors()->paginate(12);
         return view('User::Home.authors',compact('authors'));
     }
+
+    public function show(int $id)
+    {
+
+    }
 }

@@ -13,5 +13,5 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function (){
 
 Route::group(['prefix' => 'home'],function (){
     Route::get('/authors/',[HomeUserController::class,'index'])->name('home.authors');
-    Route::get('/users/{userId}/role',[UserController::class,'addRoleView'])->name('users.role.view');
+    Route::get('/users/{id}/',[HomeUserController::class,'addRoleView'])->name('home.author.details');
 });
