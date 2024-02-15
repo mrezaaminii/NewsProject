@@ -1,6 +1,6 @@
 <?php
 
-namespace mam\User\Http\Controllers;
+namespace mam\User\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use mam\Role\Repositories\RoleRepository;
