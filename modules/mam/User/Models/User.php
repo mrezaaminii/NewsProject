@@ -17,12 +17,20 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable,SoftDeletes,HasRoles,Liker;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasRoles, Liker;
 
     protected $fillable = [
         'name',
         'email',
         'password',
+        'linkedin',
+        'telegram',
+        'instagram',
+        'twitter',
+        'status',
+        'bio',
+        'imageName',
+        'imagePath'
     ];
 
     protected $hidden = [
@@ -76,7 +84,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getAuthorPath()
     {
-        return route('home.author.details',$this->id);
+        return route('home.author.details', $this->id);
     }
 
     public function getImage()

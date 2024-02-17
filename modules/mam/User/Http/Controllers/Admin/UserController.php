@@ -4,7 +4,9 @@ namespace mam\User\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use mam\Role\Repositories\RoleRepository;
+use mam\Share\Repositories\ShareRepository;
 use mam\User\Http\Requests\RoleAssignRequest;
+use mam\User\Http\Requests\UserProfileRequest;
 use mam\User\Http\Requests\UserRequest;
 use mam\User\Models\User;
 use mam\User\Repositories\UserRepository;
@@ -118,8 +120,11 @@ class UserController extends Controller
         return view('User::Home.profile',compact('user'));
     }
 
-    public function updateProfile()
+    public function updateProfile(UserProfileRequest $request)
     {
-
+        $data = $this->repository->updateProfile($request,auth()->user());
+        $this->repository->updateRecord(auth()->id(),$data);
+        ShareRepository::alertMessage('ویرایش پروفایل','ویرایش پروفایل با موفقیت انجام شد');
+        return back();
     }
 }
