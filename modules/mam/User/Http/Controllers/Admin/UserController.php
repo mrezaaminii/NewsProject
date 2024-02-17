@@ -111,4 +111,15 @@ class UserController extends Controller
         alert()->success('حذف مقام',"مقام $role->name از کاربر $user->name سلب شد");
         return to_route('users.index');
     }
+
+    public function profile()
+    {
+        $user = auth()->user();
+        return view('User::Home.profile',compact('user'));
+    }
+
+    public function updateProfile()
+    {
+
+    }
 }

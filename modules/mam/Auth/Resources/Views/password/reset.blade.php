@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                             <label for="password">تایید رمز عبور جدید</label>
-                            <input class="form-control @error('password') is-invalid @enderror"
+                            <input class="form-control @error('password_confirmation') is-invalid @enderror"
                                    type="password" id="password_confirmation" name="password_confirmation" placeholder="رمز عبور خود را وارد کنید">
                             @error('password_confirmation')
                             <div class="alert alert-danger" role="alert">

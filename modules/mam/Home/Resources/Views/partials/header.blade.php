@@ -69,6 +69,7 @@
                                     </div>
                                 </li>
                                 @auth
+                                    <li class="cat-item cat-item-5"><a href="{{ route('user.profile') }}">پروفایل</a></li>
                                     <li>
                                         <a href="{{route('auth.logout')}}">
                                                 <span class="ml-15">

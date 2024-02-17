@@ -35,6 +35,15 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    public const STATUS_ACTIVE = 'active';
+
+    public const STATUS_INACTIVE = 'inactive';
+
+    public static array $statuses = [
+        self::STATUS_ACTIVE,
+        self::STATUS_INACTIVE
+    ];
+
     public function cssStatusEmailVerifiedAt(): string
     {
         return $this->hasVerifiedEmail() ? 'success' : 'danger';
