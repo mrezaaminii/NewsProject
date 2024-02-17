@@ -14,4 +14,6 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function (){
 Route::group(['prefix' => 'home'],function (){
     Route::get('/authors/',[HomeUserController::class,'index'])->name('home.authors');
     Route::get('/users/{id}/',[HomeUserController::class,'show'])->name('home.author.details');
+    Route::get('/user/profile',[UserController::class,'profile'])->name('user.profile');
+    Route::put('/users/{slug}/',[UserController::class,'updateProfile'])->name('user.profile.update');
 });
