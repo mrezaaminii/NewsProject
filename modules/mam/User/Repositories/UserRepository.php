@@ -62,7 +62,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         return [
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => $request->password ?? $modelInstance->password,
             'linkedin' => $request->linkedin,
             'telegram' => $request->telegram,
             'instagram' => $request->instagram,

@@ -17,6 +17,9 @@ class ShareService
             }
         }
         $image = self::check_if_image_is_sent($request);
+        if (!$image){
+            throw \Exception("Image Not Found!");
+        }
         $imageName = time().'.'.$image->getClientOriginalExtension();
         if (!Storage::exists('app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$folderName)){
             Storage::makeDirectory('app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$folderName);
@@ -31,5 +34,6 @@ class ShareService
         if ($request->hasFile('image') && $request->file('image')->isValid()){
             return $request->image;
         }
+        return null;
     }
 }
