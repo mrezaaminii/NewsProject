@@ -5,15 +5,20 @@ namespace mam\Advertising\Http\Controllers;
 use App\Http\Controllers\Controller;
 use mam\Advertising\Http\Requests\AdvertisingRequest;
 use mam\Advertising\Models\Advertising;
+use mam\Advertising\Repositories\AdvertisingRepository;
 
 class AdvertisingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $repository;
+    public function __construct(AdvertisingRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function index()
     {
-        //
+        $advertisings = $this->repository->getAllAdvertisements()->paginate(10);
+        return view('Advs::index',compact('advertisings'));
     }
 
     /**
@@ -21,7 +26,7 @@ class AdvertisingController extends Controller
      */
     public function create()
     {
-        //
+        return view('Advs::create');
     }
 
     /**
@@ -29,7 +34,7 @@ class AdvertisingController extends Controller
      */
     public function store(AdvertisingRequest $request)
     {
-        //
+
     }
 
     /**

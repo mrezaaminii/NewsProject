@@ -10,7 +10,7 @@ use mam\Home\Repositories\BaseRepository;
 
 class AdvertisingRepository extends BaseRepository implements AdvertisingRepositoryInterface
 {
-    public function __construct(Advertising $advertising)
+    public function __construct(Advertising $advertising,readonly private AdvertisingService $service)
     {
         parent::__construct($advertising);
     }
@@ -20,13 +20,16 @@ class AdvertisingRepository extends BaseRepository implements AdvertisingReposit
         return $this->getAll();
     }
 
-    public function storeAdvertisement(array $data)
+    public function storeAdvertisement(AdvertisingRequest $request)
     {
+        $data = $this->service->filterRequest($request);
         return $this->storeRecord($data);
     }
 
-    public function updateAdvertisement(array $data, int $id)
+    public function updateAdvertisement(AdvertisingRequest $request, int $id)
     {
+        $advertising = $this->findById($id);
+        $data = $this->service->filterRequest($request,$advertising);
         return $this->updateRecord($id,$data);
     }
 

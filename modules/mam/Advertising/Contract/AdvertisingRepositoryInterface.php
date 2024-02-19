@@ -7,7 +7,7 @@ use mam\Advertising\Http\Requests\AdvertisingRequest;
 interface AdvertisingRepositoryInterface
 {
     public function getAllAdvertisements();
-    public function storeAdvertisement(array $data);
-    public function updateAdvertisement(array $data,int $id);
+    public function storeAdvertisement(AdvertisingRequest $request);
+    public function updateAdvertisement(AdvertisingRequest $request,int $id);
     public function deleteAdvertisement(int $id);
 }
