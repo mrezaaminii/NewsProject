@@ -4,8 +4,8 @@ namespace mam\Advertising\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use mam\Advertising\Http\Requests\AdvertisingRequest;
-use mam\Advertising\Models\Advertising;
 use mam\Advertising\Repositories\AdvertisingRepository;
+use mam\Share\Repositories\ShareRepository;
 
 class AdvertisingController extends Controller
 {
@@ -34,7 +34,9 @@ class AdvertisingController extends Controller
      */
     public function store(AdvertisingRequest $request)
     {
-
+        $this->repository->storeAdvertisement($request);
+        ShareRepository::alertMessage('ذخیره سازی تبلیغات','تبلیغ با موفقیت ذخیره شد');
+        return to_route('Advs::index');
     }
 
     /**
@@ -42,7 +44,8 @@ class AdvertisingController extends Controller
      */
     public function edit(int $id)
     {
-        //
+        $advertising = $this->repository->findById($id);
+        return view('Advs::edit',compact('advertising'));
     }
 
     /**
@@ -50,14 +53,18 @@ class AdvertisingController extends Controller
      */
     public function update(AdvertisingRequest $request, int $id)
     {
-        //
+        $this->repository->updateAdvertisement($request,$id);
+        ShareRepository::alertMessage('ویرایش تبلیغات','تبلیغ با موفقیت ویرایش شد');
+        return to_route('Advs::index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Advertising $advertising)
+    public function destroy(int $id)
     {
-        //
+        $this->repository->deleteAdvertisement($id);
+        ShareRepository::alertMessage('حذف تبلیغات','تبلیغ با موفقیت حذف شد');
+        return to_route('Advs::index');
     }
 }
