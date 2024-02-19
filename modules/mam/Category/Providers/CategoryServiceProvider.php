@@ -30,5 +30,10 @@ class CategoryServiceProvider extends ServiceProvider
                 ]);
             });
         });
+
+        view()->composer(['Category::Home.details'],function ($view){
+            $categories = Category::where('status',Category::ACTIVE)->get();
+            $view->with(['categories' => $categories]);
+        });
     }
 }
