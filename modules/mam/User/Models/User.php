@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use mam\Advertising\Models\Advertising;
 use mam\Article\Models\Article;
 use mam\Category\Model\Category;
 use mam\Comment\Models\Comment;
@@ -75,6 +76,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function advertisings(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Advertising::class);
     }
 
     public function getPath()

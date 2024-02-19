@@ -170,6 +170,7 @@ return [
         mam\Article\Providers\ArticleServiceProvider::class,
         mam\Comment\Providers\CommentServiceProvider::class,
         mam\Share\Providers\ShareServiceProvider::class,
+        mam\Advertising\Providers\AdvertisingServiceProvider::class,
         /*
          * Package Service Providers...
          */
