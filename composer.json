@@ -39,7 +39,8 @@
             "mam\\Role\\": "modules/mam/Role",
             "mam\\Article\\": "modules/mam/Article",
             "mam\\Comment\\": "modules/mam/Comment",
-            "mam\\Share\\": "modules/mam/Share"
+            "mam\\Share\\": "modules/mam/Share",
+            "mam\\Advertising\\": "modules/mam/Advertising"
         }
     },
     "autoload-dev": {
