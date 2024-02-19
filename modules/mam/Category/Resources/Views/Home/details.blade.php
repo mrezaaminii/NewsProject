@@ -41,24 +41,21 @@
                                         <article class="col-lg-6 col-md-12 wow fadeIn animated">
                                             <div class="background-white border-radius-10 p-10 mb-30">
                                                 <div class="post-thumb d-flex mb-15 border-radius-15 img-hover-scale">
-                                                    <a href="single.html">
-                                                        <img class="border-radius-15" src="assets/imgs/news-2.jpg" alt="">
+                                                    <a href="{{ $article->getPath() }}">
+                                                        <img class="border-radius-15" src="{{ asset('storage/'.$article->imagePath) }}" alt="article image">
                                                     </a>
                                                 </div>
                                                 <div class="pl-10 pr-10">
                                                     <div class="entry-meta mb-15 mt-10">
-                                                        <a class="entry-meta meta-2" href="category.html"><span class="post-in text-primary font-x-small">سیاسی</span></a>
+                                                        <a class="entry-meta meta-2" href="#"><span class="post-in text-primary font-x-small">{{ $article->category->title }}</span></a>
                                                     </div>
                                                     <h5 class="post-title mb-15">
-                                                            <span class="post-format-icon">
-                                                                <ion-icon name="image-outline"></ion-icon>
-                                                            </span>
-                                                        <a href="single.html">تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی</a></h5>
-                                                    <p class="post-exerpt font-medium text-muted mb-30">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                                                        <a href="{{ $article->getPath() }}">{{ \Illuminate\Support\Str::limit($article->title,70) }}</a></h5>
+                                                    <p class="post-exerpt font-medium text-muted mb-30">{{ \Illuminate\Support\Str::limit($article->body) }}</p>
                                                     <div class="entry-meta meta-1 font-x-small color-grey float-right text-uppercase mb-10">
-                                                        <span class="post-in">در <a href="category.html">سیاسی</a></span>
-                                                        <span class="post-by">توسط <a href="author.html">بهمن راستی</a></span>
-                                                        <span class="post-on">8 دقیقه پیش</span>
+                                                        <span class="post-in">در <a href="#">{{ $article->category->title }}</a></span>
+                                                        <span class="post-by">توسط <a href="{{ $article->user->getAuthorPath() }}">{{ $article->user?->name }}</a></span>
+                                                        <span class="post-on">{{ $article->created_at->diffForHumans() }}</span>
                                                     </div>
                                                 </div>
                                             </div>
