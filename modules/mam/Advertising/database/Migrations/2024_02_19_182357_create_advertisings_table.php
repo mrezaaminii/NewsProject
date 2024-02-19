@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('advertisings', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\mam\User\Models\User::class);
+            $table->text('imageName');
+            $table->text('imagePath');
+            $table->text('link')->nullable();
+            $table->string('title');
             $table->timestamps();
         });
     }
