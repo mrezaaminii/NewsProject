@@ -3,7 +3,7 @@
 namespace mam\Advertising\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use mam\Advertising\Http\Requests\AdvertisingRequest;
 use mam\Advertising\Models\Advertising;
 
 class AdvertisingController extends Controller
@@ -27,15 +27,7 @@ class AdvertisingController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Advertising $advertising)
+    public function store(AdvertisingRequest $request)
     {
         //
     }
@@ -43,7 +35,7 @@ class AdvertisingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Advertising $advertising)
+    public function edit(int $id)
     {
         //
     }
@@ -51,7 +43,7 @@ class AdvertisingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Advertising $advertising)
+    public function update(AdvertisingRequest $request, int $id)
     {
         //
     }

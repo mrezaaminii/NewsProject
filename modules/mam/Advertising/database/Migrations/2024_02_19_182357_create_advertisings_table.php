@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('imagePath');
             $table->text('link')->nullable();
             $table->string('title');
+            $table->enum('location',\mam\Advertising\Models\Advertising::$locations);
             $table->timestamps();
         });
     }
