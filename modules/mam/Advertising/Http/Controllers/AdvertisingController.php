@@ -17,8 +17,8 @@ class AdvertisingController extends Controller
 
     public function index()
     {
-        $advertisings = $this->repository->getAllAdvertisements()->paginate(10);
-        return view('Advs::index',compact('advertisings'));
+        $advss = $this->repository->getAllAdvertisements()->paginate(10);
+        return view('Advs::index',compact('advss'));
     }
 
     /**
