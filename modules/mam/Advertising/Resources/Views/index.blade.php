@@ -43,7 +43,7 @@
                                     </td>
                                     <td>{{ $advs->title }}</td>
                                     <td>
-                                        <a href="{{$advs->link}}">{{$advs->link}}</a>
+                                        <a href="https://{{$advs->link}}" target="_blank">{{$advs->link}}</a>
                                     </td>
                                     <td>{{ $advs->location }}</td>
                                     <td>{{ $advs->user?->name }}</td>
@@ -51,14 +51,7 @@
                                     <td>
                                         <div class="row">
                                             <a href="{{ route('articles.edit', $advs->id) }}" class="btn btn-warning" title="ویرایش"><i class="fa fa-pen"></i></a>
-                                            <button type="button"
-                                                    data-url="{{route('articles.change.status',$advs->id)}}"
-                                                    onclick="changeStatus(this,{{$advs}})"
-                                                    class="btn @if($advs->status === 'active') btn-dark @elseif($advs->status === 'pending') btn-primary @else btn-success @endif ml-1"
-                                                    title="تغییر وضعیت">
-                                                <i class="@if($advs->status === 'active') fa fa-spinner @elseif($advs->status === 'pending') fa fa-times @else fa fa-check @endif"></i>
-                                            </button>
-                                            <form action="{{ route('articles.destroy', $advs->id) }}" method="POST">
+                                            <form action="{{ route('advertising.destroy', $advs->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger ml-1" title="حذف"><i class="fa fa-trash"></i></button>
@@ -77,35 +70,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('js')
-    <script src="{{ asset('assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
-    <script>
-        function changeStatus(element,article){
-        const statusBadge = document.getElementById('statusBadge' + article.id);
-            $.ajax({
-                url: element.getAttribute('data-url'),
-                type:"GET",
-                success: (response) => {
-                    if(response.status === 'active') {
-                        statusBadge.innerText = 'فعال';
-                        element.classList.remove('btn-success');
-                        element.classList.add('btn-dark');
-                        element.firstElementChild.className = "fa fa-spinner"
-                    }else if (response.status === 'pending'){
-                        statusBadge.innerText = 'در حال پردازش';
-                        element.classList.remove('btn-dark');
-                        element.classList.add('btn-primary');
-                        element.firstElementChild.className = "fa fa-times";
-                    }else{
-                        statusBadge.innerText = 'غیر فعال';
-                        element.classList.remove('btn-primary');
-                        element.classList.add('btn-success');
-                        element.firstElementChild.className = "fa fa-check"
-                    }
-                }
-            })
-        }
-    </script>
 @endsection

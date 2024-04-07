@@ -11,6 +11,7 @@ class AdvertisingServiceProvider extends ServiceProvider
     {
         Route::middleware('web')->group(__DIR__ . '/../Routes/advertising_routes.php');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'Advs');
+        $this->loadJsonTranslationsFrom(__DIR__. '/../Resources/Lang/');
         $this->loadMigrationsFrom(__DIR__ . '/../database/Migrations');
     }
 

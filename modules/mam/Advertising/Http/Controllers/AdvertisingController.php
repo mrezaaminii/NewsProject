@@ -36,7 +36,7 @@ class AdvertisingController extends Controller
     {
         $this->repository->storeAdvertisement($request);
         ShareRepository::alertMessage('ذخیره سازی تبلیغات','تبلیغ با موفقیت ذخیره شد');
-        return to_route('Advs::index');
+        return to_route('advertising.index');
     }
 
     /**
@@ -55,7 +55,7 @@ class AdvertisingController extends Controller
     {
         $this->repository->updateAdvertisement($request,$id);
         ShareRepository::alertMessage('ویرایش تبلیغات','تبلیغ با موفقیت ویرایش شد');
-        return to_route('Advs::index');
+        return to_route('advertising.index');
     }
 
     /**
@@ -65,6 +65,6 @@ class AdvertisingController extends Controller
     {
         $this->repository->deleteAdvertisement($id);
         ShareRepository::alertMessage('حذف تبلیغات','تبلیغ با موفقیت حذف شد');
-        return to_route('Advs::index');
+        return to_route('advertising.index');
     }
 }

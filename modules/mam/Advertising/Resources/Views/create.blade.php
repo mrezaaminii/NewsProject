@@ -12,7 +12,7 @@
                         <div class="col-12">
                             <div class="p-2">
                                 <form class="form-horizontal" role="form" method="POST"
-                                      action="{{ route('articles.store') }}" enctype="multipart/form-data">
+                                      action="{{ route('advertising.store') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label" for="title">عنوان</label>
