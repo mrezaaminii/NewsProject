@@ -42,15 +42,15 @@
                                         <img style="max-width: 50px" src="{{ asset('storage'.DIRECTORY_SEPARATOR.$advs->imagePath) }}" alt="article-image">
                                     </td>
                                     <td>{{ $advs->title }}</td>
+                                    <td>@lang($advs->location)</td>
                                     <td>
                                         <a href="https://{{$advs->link}}" target="_blank">{{$advs->link}}</a>
                                     </td>
-                                    <td>{{ $advs->location }}</td>
                                     <td>{{ $advs->user?->name }}</td>
                                     <td>{{ Helper::convertEnglishToPersian(jdate($advs->created_at)->format('Y-m-d')) }}</td>
                                     <td>
                                         <div class="row">
-                                            <a href="{{ route('articles.edit', $advs->id) }}" class="btn btn-warning" title="ویرایش"><i class="fa fa-pen"></i></a>
+                                            <a href="{{ route('advertising.edit', $advs->id) }}" class="btn btn-warning" title="ویرایش"><i class="fa fa-pen"></i></a>
                                             <form action="{{ route('advertising.destroy', $advs->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
