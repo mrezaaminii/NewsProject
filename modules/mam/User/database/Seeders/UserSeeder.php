@@ -3,6 +3,7 @@
 namespace mam\User\database\Seeders;
 
 use Illuminate\Database\Seeder;
+use mam\Role\Models\Role;
 use mam\User\Models\User;
 
 class UserSeeder extends Seeder
@@ -19,7 +20,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt(12345678),
         ]);
 
-        $superAdminRole = Role::where('name', 'super admin')->first();
+        $superAdminRole = Role::where('name', 'سوپر ادمین')->first();
 
         if ($superAdminRole) {
             $user->assignRole($superAdminRole);
