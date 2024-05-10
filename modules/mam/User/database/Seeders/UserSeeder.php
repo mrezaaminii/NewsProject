@@ -12,12 +12,19 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create the user
         $user = User::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@example.com',
             'password' => bcrypt(12345678),
         ]);
 
-        $user->givePermissionTo('permission super admin');
+        $superAdminRole = Role::where('name', 'super admin')->first();
+
+        if ($superAdminRole) {
+            $user->assignRole($superAdminRole);
+        } else {
+            $this->command->info('Super admin role does not exist.');
+        }
     }
 }
