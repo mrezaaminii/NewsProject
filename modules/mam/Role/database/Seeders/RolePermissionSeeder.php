@@ -7,11 +7,11 @@ use Spatie\Permission\Models\Permission;
 use mam\Role\Models\Permission as PermissionModel;
 use Spatie\Permission\Models\Role;
 
-class RoleSeeder extends Seeder
+class RolePermissionSeeder extends Seeder
 {
     public function run(): void
     {
-        $permissions = Permission::pluck('name');
+        $permissions = Permission::all();
 
         $roles = [
             'سوپر ادمین' => [PermissionModel::PERMISSION_SUPER_ADMIN,PermissionModel::PERMISSION_PANEL,PermissionModel::PERMISSION_USERS,PermissionModel::PERMISSION_CATEGORIES,PermissionModel::PERMISSION_ROLES],

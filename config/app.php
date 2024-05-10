@@ -161,12 +161,12 @@ return [
   * Modules Service Providers...
   */
         mam\Home\Providers\HomeServiceProvider::class,
+        mam\Role\Providers\RoleServiceProvider::class,
         mam\User\Providers\UserServiceProvider::class,
         mam\Auth\Providers\AuthServiceProvider::class,
         mam\Panel\Providers\PanelServiceProvider::class,
         mam\Home\Providers\RepositoryServiceProvider::class,
         mam\Category\Providers\CategoryServiceProvider::class,
-        mam\Role\Providers\RoleServiceProvider::class,
         mam\Article\Providers\ArticleServiceProvider::class,
         mam\Comment\Providers\CommentServiceProvider::class,
         mam\Share\Providers\ShareServiceProvider::class,
