@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
 //        $this->callOnce(UserSeeder::class);
 
-         User::factory(10)->create();
+//         User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
