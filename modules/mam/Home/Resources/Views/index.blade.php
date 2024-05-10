@@ -7,7 +7,7 @@
         @include('Home::portions.post-carausel',['vip_posts' => $homeRepository])
         <div class="container">
             <!--Ads-->
-            @include('Home::portions.home-ads',['ads' => $homeRepository])
+            @include('Home::portions.home-ads',['ads' => $advs_top])
             <!--Content-->
             <div class="row">
                 <!-- sidebar-left -->

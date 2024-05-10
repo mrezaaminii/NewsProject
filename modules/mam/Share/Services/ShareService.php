@@ -21,10 +21,10 @@ class ShareService
             throw \Exception("Image Not Found!");
         }
         $imageName = time().'.'.$image->getClientOriginalExtension();
-        if (!Storage::exists('app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$folderName)){
-            Storage::makeDirectory('app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$folderName);
+        if (!Storage::exists('public'.'/'.'images'.'/'.$folderName)){
+            Storage::makeDirectory('/'.'public'.'/'.'images'.'/'.$folderName);
         }
-        $imagePath = Storage::disk('public')->putFileAs('images'.DIRECTORY_SEPARATOR.$folderName,$image,$imageName);
+        $imagePath = Storage::disk('public')->putFileAs('images'.'/'.$folderName,$image,$imageName);
 
         return [$imageName,$imagePath];
     }

@@ -2,6 +2,7 @@
 
 namespace mam\Home\Repositories;
 
+use mam\Advertising\Models\Advertising;
 use mam\Article\Models\Article;
 use mam\Category\Model\Category;
 use mam\Home\Contract\HomeRepositoryInterface;
@@ -38,5 +39,10 @@ class HomeRepository implements HomeRepositoryInterface
     public function getNewArticles()
     {
         return Article::query()->where('type',Article::TYPE_NORMAL)->where('status',Article::STATUS_ACTIVE)->latest()->limit(8)->get();
+    }
+
+    public function getTopAdByLocation()
+    {
+        return Advertising::query()->where('location', Advertising::LOCATION_TOP_MAIN_PAGE)->latest()->first();
     }
 }
