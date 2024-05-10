@@ -4,12 +4,15 @@ namespace mam\Advertising\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use mam\Advertising\Http\Requests\AdvertisingRequest;
+use mam\Advertising\Models\Advertising;
 use mam\Advertising\Repositories\AdvertisingRepository;
 use mam\Share\Repositories\ShareRepository;
 
 class AdvertisingController extends Controller
 {
     protected $repository;
+    private string $class = Advertising::class;
+
     public function __construct(AdvertisingRepository $repository)
     {
         $this->repository = $repository;
@@ -17,6 +20,7 @@ class AdvertisingController extends Controller
 
     public function index()
     {
+        $this->authorize('index',$this->class);
         $advss = $this->repository->getAllAdvertisements()->paginate(10);
         return view('Advs::index',compact('advss'));
     }
