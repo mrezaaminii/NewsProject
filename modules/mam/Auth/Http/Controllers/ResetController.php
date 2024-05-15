@@ -2,7 +2,6 @@
 
 namespace mam\Auth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,6 +9,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use mam\Auth\Http\Requests\ResetPasswordRequest;
 use mam\Auth\Http\Requests\SendEmailPasswordRecoveryRequest;
+use mam\Share\Http\Controllers\Controller;
 use mam\User\Models\User;
 
 class ResetController extends Controller

@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
 use mam\Auth\Http\Controllers\LoginController;
 use mam\Auth\Http\Controllers\LogoutController;
 use mam\Auth\Http\Controllers\RegisterController;
 use mam\Auth\Http\Controllers\ResetController;
+use mam\Share\Http\Controllers\VerifyController;
 
 Route::group([],function (){
     Route::get('register',[RegisterController::class,'view'])->name('auth.register');

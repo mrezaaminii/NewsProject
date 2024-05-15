@@ -2,8 +2,8 @@
 
 namespace mam\Auth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use mam\Auth\Http\Requests\LoginRequest;
+use mam\Share\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {

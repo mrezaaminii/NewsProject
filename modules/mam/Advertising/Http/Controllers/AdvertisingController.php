@@ -2,10 +2,10 @@
 
 namespace mam\Advertising\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use mam\Advertising\Http\Requests\AdvertisingRequest;
 use mam\Advertising\Models\Advertising;
 use mam\Advertising\Repositories\AdvertisingRepository;
+use mam\Share\Http\Controllers\Controller;
 use mam\Share\Repositories\ShareRepository;
 
 class AdvertisingController extends Controller

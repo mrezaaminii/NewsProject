@@ -2,8 +2,8 @@
 
 namespace mam\Comment\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use mam\Comment\Repositories\CommentRepository;
+use mam\Share\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {

@@ -2,10 +2,6 @@
 
 @section('title','صفحه اصلی')
 
-{{--@php--}}
-{{--            dd(auth()->user()->roles->permissions);--}}
-{{--@endphp--}}
-
 @section('content')
     <main class="position-relative">
         @include('Home::portions.post-carausel',['vip_posts' => $homeRepository])

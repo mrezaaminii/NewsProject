@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace mam\Share\Http\Controllers;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;

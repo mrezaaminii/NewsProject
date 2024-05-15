@@ -2,8 +2,8 @@
 
 namespace mam\User\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use mam\Role\Repositories\RoleRepository;
+use mam\Share\Http\Controllers\Controller;
 use mam\Share\Repositories\ShareRepository;
 use mam\User\Http\Requests\RoleAssignRequest;
 use mam\User\Http\Requests\UserProfileRequest;

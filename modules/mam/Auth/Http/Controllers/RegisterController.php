@@ -2,10 +2,10 @@
 
 namespace mam\Auth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use mam\Auth\Http\Requests\RegisterRequest;
 use mam\Auth\Services\RegisterService;
+use mam\Share\Http\Controllers\Controller;
 
 class RegisterController extends Controller
 {

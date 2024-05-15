@@ -2,10 +2,10 @@
 
 namespace mam\Article\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
 use mam\Article\Repositories\ArticleRepository;
 use mam\Comment\Repositories\CommentRepository;
 use mam\Home\Repositories\HomeRepository;
+use mam\Share\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {

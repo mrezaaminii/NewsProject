@@ -3,8 +3,8 @@
 namespace mam\Role\database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
 use mam\Role\Models\Permission as PermissionModel;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RolePermissionSeeder extends Seeder

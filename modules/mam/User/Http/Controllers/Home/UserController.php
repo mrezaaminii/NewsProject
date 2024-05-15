@@ -2,7 +2,7 @@
 
 namespace mam\User\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
+use mam\Share\Http\Controllers\Controller;
 use mam\User\Repositories\Home\UserRepository;
 
 class UserController extends Controller

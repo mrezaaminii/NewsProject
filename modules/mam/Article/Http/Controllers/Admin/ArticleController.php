@@ -2,12 +2,12 @@
 
 namespace mam\Article\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use mam\Article\Http\Requests\ArticleRequest;
 use mam\Article\Models\Article;
 use mam\Article\Repositories\ArticleRepository;
 use mam\Category\Repositories\CategoryRepository;
 use mam\Home\Repositories\HomeRepository;
+use mam\Share\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {

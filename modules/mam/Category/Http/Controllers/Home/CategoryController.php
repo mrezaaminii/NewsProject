@@ -2,9 +2,9 @@
 
 namespace mam\Category\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
 use mam\Article\Models\Article;
 use mam\Category\Repositories\CategoryRepository;
+use mam\Share\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {

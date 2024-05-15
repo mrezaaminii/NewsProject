@@ -2,8 +2,8 @@
 
 namespace mam\Panel\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use mam\Panel\Models\Panel;
+use mam\Share\Http\Controllers\Controller;
 
 class PanelController extends Controller
 {

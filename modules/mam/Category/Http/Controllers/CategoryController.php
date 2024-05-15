@@ -6,7 +6,7 @@ use mam\Category\Http\Requests\CategoryRequest;
 use mam\Category\Model\Category;
 use mam\Category\Repositories\CategoryRepository;
 
-class CategoryController extends \App\Http\Controllers\Controller
+class CategoryController extends \mam\Share\Http\Controllers\Controller
 {
     protected $repository;
 

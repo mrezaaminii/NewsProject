@@ -2,8 +2,8 @@
 
 namespace mam\Auth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use mam\Share\Http\Controllers\Controller;
 
 class LogoutController extends Controller
 {
