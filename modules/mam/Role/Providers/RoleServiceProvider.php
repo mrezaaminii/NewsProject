@@ -31,7 +31,7 @@ class RoleServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->app->booted(function (){
-            Route::matched(function (){
+            Route::matched(function () {
                 config()->set('panelConfig.menus.role',[
                     'url' => route('roles.index'),
                     'title' => 'مقام ها',

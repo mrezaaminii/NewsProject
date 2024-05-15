@@ -103,14 +103,6 @@ use App\Helper\Helper;
                 <!--End col-lg-4-->
             </div>
             <!--End row-->
-            <div class="row">
-                <div class="col-12 text-center mb-50">
-                    <a href="#">
-                        <img class="border-radius-10 d-inline" src="{{ asset('assets/imgs/ads-3.png') }}"
-                             alt="below advertisement">
-                    </a>
-                </div>
-            </div>
         </div>
     </main>
     @endsection

@@ -57,5 +57,5 @@
 {{--            </ul>--}}
 {{--        </nav>--}}
 {{--    </div>--}}
-    @include('Home::portions.advs-bottom')
+    @include('Home::portions.advs-bottom',['advs_bottom' => $advs_bottom])
 </div>

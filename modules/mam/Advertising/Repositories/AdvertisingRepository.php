@@ -6,6 +6,7 @@ use mam\Advertising\Contract\AdvertisingRepositoryInterface;
 use mam\Advertising\Http\Requests\AdvertisingRequest;
 use mam\Advertising\Models\Advertising;
 use mam\Advertising\Services\AdvertisingService;
+use mam\Article\Models\Article;
 use mam\Home\Repositories\BaseRepository;
 
 class AdvertisingRepository extends BaseRepository implements AdvertisingRepositoryInterface
@@ -36,5 +37,10 @@ class AdvertisingRepository extends BaseRepository implements AdvertisingReposit
     public function deleteAdvertisement(int $id)
     {
         return $this->deleteRecord($id);
+    }
+
+    public function getAdvsByLocation(string $location)
+    {
+        return Advertising::query()->where('location',$location);
     }
 }

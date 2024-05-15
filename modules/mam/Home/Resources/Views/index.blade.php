@@ -2,6 +2,10 @@
 
 @section('title','صفحه اصلی')
 
+{{--@php--}}
+{{--            dd(auth()->user()->roles->permissions);--}}
+{{--@endphp--}}
+
 @section('content')
     <main class="position-relative">
         @include('Home::portions.post-carausel',['vip_posts' => $homeRepository])
@@ -15,7 +19,7 @@
                 <!-- main content -->
                 <div class="col-lg-10 col-md-9 order-1 order-md-2">
                     <div class="row">
-                        @include('Home::portions.news-posts',['home_repo' => $homeRepository])
+                        @include('Home::portions.news-posts',['home_repo' => $homeRepository,'advs_bottom' => $advs_bottom])
                         @include('Home::portions.sidebar-left',['active_category' => $homeRepository])
                     </div>
                 </div>
