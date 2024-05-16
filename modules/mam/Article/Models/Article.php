@@ -44,4 +44,12 @@ class Article extends Model implements Viewable
     {
         return route('articles.home.details',$this->slug);
     }
+
+    public function cssStatus()
+    {
+        if($this->status === 'active') {
+            return "success";
+        }
+        return "danger";
+    }
 }
