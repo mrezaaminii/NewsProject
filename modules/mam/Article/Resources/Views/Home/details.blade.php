@@ -50,7 +50,7 @@
                     </div>
                     <div class="bt-1 border-color-1 mb-30"></div>
                     <figure class="single-thumnail mb-30">
-                        <img src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
+                        <img src="{{ asset('storage' . DIRECTORY_SEPARATOR.$article->imagePath) }}" alt="{{ $article->title }}">
                     </figure>
                     <div class="entry-main-content">
                         @if(!is_null($article->description))

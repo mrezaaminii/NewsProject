@@ -69,7 +69,7 @@
                                 <div class="d-md-flex d-block">
                                     <div class="post-thumb post-thumb-big d-flex ml-15 border-radius-15 img-hover-scale">
                                         <a class="color-white" href="{{ $article->getPath() }}">
-                                            <img class="border-radius-15" src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
+                                            <img class="border-radius-15" src="{{ asset('storage' . DIRECTORY_SEPARATOR.$article->imagePath) }}" alt="{{ $article->title }}">
                                         </a>
                                     </div>
                                     <div class="post-content media-body">

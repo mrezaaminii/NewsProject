@@ -20,7 +20,7 @@
                     <div class="d-flex">
                         <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
                             <a class="color-white" href="{{ $article->getPath() }}">
-                                <img src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
+                                <img src="{{ asset('storage' . DIRECTORY_SEPARATOR.$article->imagePath) }}" alt="{{ $article->title }}">
                             </a>
                         </div>
                         <div class="post-content media-body">
@@ -79,7 +79,7 @@
                     <div class="d-flex">
                         <div class="post-thumb d-flex ml-15 border-radius-5 img-hover-scale">
                             <a class="color-white" href="{{ $article->getPath() }}">
-                                <img src="{{ asset('storage/'.$article->imagePath) }}" alt="{{ $article->title }}">
+                                <img src="{{ asset('storage' . DIRECTORY_SEPARATOR.$article->imagePath) }}" alt="{{ $article->title }}">
                             </a>
                         </div>
                         <div class="post-content media-body">

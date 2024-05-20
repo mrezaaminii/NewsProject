@@ -4,7 +4,7 @@
         <div class="slider-single bg-white p-10 border-radius-15">
             <div class="img-hover-scale border-radius-10">
                 <a href="{{ $vipPost->getPath() }}">
-                    <img class="border-radius-10" src="{{ asset('storage/'.$vipPost->imagePath) }}" alt="{{$vipPost->title}}">
+                    <img class="border-radius-10" src="{{ asset('storage' . DIRECTORY_SEPARATOR.$vipPost->imagePath) }}" alt="{{$vipPost->title}}">
                 </a>
             </div>
             <h6 class="post-title pr-5 pl-5 mb-10 mt-15 text-limit-2-row">
